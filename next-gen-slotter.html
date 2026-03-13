@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Gen Slotter — Michelle Kim</title>
+<meta name="description" content="Empowering Woolworths Category Managers to make better promotional planning decisions and form stronger negotiations with suppliers.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+/* ── CASE HERO ── */
+.case-hero {
+  padding-top: 60px;
+  min-height: 80vh;
+  background: #0d2200;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.case-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 75% 40%, rgba(53,134,0,0.22) 0%, transparent 60%),
+              radial-gradient(ellipse at 15% 85%, rgba(53,134,0,0.1) 0%, transparent 50%);
+}
+
+.case-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 56px;
+  max-width: 900px;
+}
+
+.case-hero-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  margin-bottom: 48px;
+  transition: color 0.2s;
+}
+.case-hero-back:hover { color: rgba(255,255,255,0.8); }
+
+.case-hero-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 20px;
+}
+
+.case-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.case-hero-tagline {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 48px;
+}
+
+.case-hero-meta {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.case-meta-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.case-meta-value { font-size: 13px; color: rgba(255,255,255,0.75); }
+.case-meta-value a { color: var(--green-mid); text-decoration: none; }
+
+/* ── SHARED CASE STYLES ── */
+.case-section { padding: 80px 0; border-bottom: 1px solid var(--rule); }
+.case-section:last-of-type { border-bottom: none; }
+.case-section-alt { background: var(--card); }
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.case-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  line-height: 1.15;
+}
+
+.case-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.85;
+}
+
+.case-body strong { font-weight: 600; color: var(--black); }
+
+.case-body + .case-body { margin-top: 16px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.grid-img-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid-img-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+
+.img-placeholder {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 28px;
+  text-align: center;
+}
+.img-placeholder.tall   { min-height: 260px; }
+.img-placeholder.medium { min-height: 180px; }
+.img-placeholder.short  { min-height: 120px; }
+.img-placeholder-label  { font-size: 10px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #bbb; }
+.img-placeholder-desc   { font-size: 11px; color: #ccc; }
+
+.img-real { width: 100%; border-radius: 4px; border: 1px solid var(--rule); display: block; }
+.img-caption { font-size: 11px; color: var(--mid); margin-top: 8px; text-align: center; font-style: italic; }
+
+.insight-card {
+  background: var(--green-light);
+  border-left: 3px solid var(--green);
+  padding: 20px 24px;
+  border-radius: 0 3px 3px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--black);
+  line-height: 1.6;
+}
+
+.outcomes-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.outcomes-list { display: flex; flex-direction: column; gap: 14px; }
+
+.outcome-item {
+  font-size: 13.5px;
+  color: #333;
+  line-height: 1.65;
+  padding-left: 18px;
+  position: relative;
+}
+.outcome-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.outcome-item strong { font-weight: 600; color: var(--black); }
+
+.user-quote {
+  background: var(--black);
+  border-radius: 4px;
+  padding: 28px 32px;
+}
+.user-quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+.user-quote-cite { font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* ── CASE FOOTER NAV ── */
+.case-footer-nav {
+  background: var(--card);
+  padding: 48px 0;
+  border-top: 1px solid var(--rule);
+}
+.case-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.case-footer-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.case-footer-back:hover { color: var(--black); }
+.case-footer-next { text-align: right; }
+.case-footer-next-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  display: block;
+  margin-bottom: 4px;
+}
+.case-footer-next-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--black);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.case-footer-next-title:hover { color: var(--green); }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .case-hero-content { padding: 60px 24px; }
+  .grid-2, .grid-img-2, .grid-img-3 { grid-template-columns: 1fr; }
+  .case-footer-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .case-footer-next { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Michelle Kim</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="case-hero" style="border-bottom:none;">
+  <div class="case-hero-bg"></div>
+  <div class="case-hero-content">
+    <a href="index.html" class="case-hero-back">← All work</a>
+    <div class="case-hero-eyebrow">UX / UI Design · Woolworths · 2021–Present</div>
+    <h1 class="case-hero-title">Next Gen Slotter</h1>
+    <p class="case-hero-tagline">Empowering Woolworths Category Managers to make better promotional planning decisions and form stronger negotiations with suppliers — replacing fragmented tools with a unified central platform.</p>
+    <div class="case-hero-meta">
+      <div>
+        <span class="case-meta-label">Role</span>
+        <span class="case-meta-value">UX / UI Designer</span>
+      </div>
+      <div>
+        <span class="case-meta-label">Team</span>
+        <span class="case-meta-value">Design team of 3</span>
+      </div>
+      <div>
+        <span class="case-meta-label">Duration</span>
+        <span class="case-meta-value">Sept 2021 — Present</span>
+      </div>
+      <div>
+        <span class="case-meta-label">Prototype</span>
+        <span class="case-meta-value"><a href="https://michelle-kim.net/next-gen-slotter" target="_blank">View on current site →</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Overview -->
+<section class="case-section">
+  <div class="container">
+    <div class="grid-2" style="gap:64px; align-items:start;">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px;">About this project</div>
+        <p class="case-body">An innovative <strong>end-to-end central promotional management platform</strong> for Assistant Category Managers (ACMs) and Category Managers (CMs) at Woolworths to plan and slot category promotions whilst negotiating promotional plans, offers and agreements with suppliers.</p>
+        <p class="case-body">Through our UX process, we identified that users' major needs are to <strong>reduce administrative burden</strong> and <strong>access all aspects of promotions</strong> — strategy, planning, calendar slotting, commercial agreements and offer execution — in one central place.</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px;">My role</div>
+        <p class="case-body">UX / UI Designer across a design team of 3. Responsible for User Research, Strategy, Information Architecture, UI Design, Wireframing, Prototyping and Usability Testing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="case-section case-section-alt">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">The problem</div>
+    <h2 class="case-heading" style="margin-bottom:28px; max-width:700px;">Admin burden was preventing better decisions</h2>
+    <div class="grid-2" style="gap:48px; align-items:start;">
+      <p class="case-body">Woolworths' ACMs and CMs often struggled to efficiently negotiate the best promotional plan with suppliers due to their <strong>lack of time</strong> and <strong>flaws in existing tools and processes</strong>. Copious time spent on admin — rather than on making the right decisions — was creating significant lost revenue and profit opportunities.</p>
+      <div style="border-left:3px solid var(--green); padding-left:28px;">
+        <p style="font-family:'Playfair Display',serif; font-size:clamp(17px,2vw,22px); font-style:italic; font-weight:400; color:var(--black); line-height:1.5;">How do we reduce the admin burden for ACMs so they can focus on building the most optimal promotional plan?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research -->
+<section class="case-section">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Discovery</div>
+    <h2 class="case-heading" style="margin-bottom:28px;">Understanding the user</h2>
+    <p class="case-body" style="max-width:700px; margin-bottom:40px;">Through user interviews with ACMs and CMs, I gathered themes and highlighted them in an affinity map — clearly defining the main users, their current workflow, pain points and opportunities.</p>
+
+    <div class="insight-card" style="margin-bottom:32px;">Needs and pain points of ACMs and CMs stemmed from two common problems: admin burden and lack of time.</div>
+
+    <div class="grid-img-2" style="margin-bottom:32px;">
+      <figure><img src="assets/images/ngs-affinity-map.png" alt="Affinity map from user interviews" class="img-real"><figcaption class="img-caption">Affinity map — insights from user interviews</figcaption></figure>
+      <figure><img src="assets/images/ngs-research-insights.png" alt="Main insights from research" class="img-real"><figcaption class="img-caption">Main insights from research</figcaption></figure>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom:16px; margin-top:48px;">Personas</div>
+    <h2 class="case-heading" style="margin-bottom:20px;">ACM &amp; CM</h2>
+    <p class="case-body" style="max-width:700px; margin-bottom:32px;">The initial focus users that benefit most from this platform are <strong>Assistant Category Managers (ACMs)</strong> — who spend the most time negotiating deal sheet agreements and planning promotions with suppliers. <strong>Category Managers (CMs)</strong> are also involved at a higher level as the point of escalation between ACM and supplier negotiations.</p>
+    <figure><img src="assets/images/ngs-personas.png" alt="ACM and CM personas" class="img-real"><figcaption class="img-caption">ACM &amp; CM personas</figcaption></figure>
+
+    <div style="margin-top:48px;">
+      <div class="eyebrow" style="margin-bottom:16px;">Journey map</div>
+      <h2 class="case-heading" style="margin-bottom:20px;">ACM-centric journey map</h2>
+      <p class="case-body" style="max-width:700px; margin-bottom:32px;">ACMs' most critical pain points lie during the slotting and planning stage due to the admin burden and complexity of existing tools, and significant manual overheads required to confirm and amend deals.</p>
+      <figure><img src="assets/images/ngs-journey-map.png" alt="ACM centric journey map" class="img-real"><figcaption class="img-caption">ACM-centric journey map</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Solution -->
+<section class="case-section case-section-alt">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">The solution</div>
+    <h2 class="case-heading" style="margin-bottom:28px;">A platform built around two core needs</h2>
+    <p class="case-body" style="max-width:700px; margin-bottom:40px;">The solution comprises two major components working together as one unified platform:</p>
+    <div class="grid-2" style="gap:32px; margin-bottom:40px;">
+      <div style="background:var(--white); border:1px solid var(--rule); border-radius:4px; padding:28px;">
+        <div class="eyebrow" style="margin-bottom:12px;">01</div>
+        <p style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:10px; line-height:1.2;">Centralised deal sheet</div>
+        <p class="case-body" style="font-size:13px;">Stores and manages commercial supplier agreements, reflecting each category team's promotional strategy in one place.</p>
+      </div>
+      <div style="background:var(--white); border:1px solid var(--rule); border-radius:4px; padding:28px;">
+        <div class="eyebrow" style="margin-bottom:12px;">02</div>
+        <p style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:10px; line-height:1.2;">Promotional calendar</div>
+        <p class="case-body" style="font-size:13px;">Displays essential promotion information at a high level, with detailed data gathered from various tools for informed decision-making.</p>
+      </div>
+    </div>
+    <figure><img src="assets/images/ngs-solution-overview.png" alt="Solution overview — deal sheet and calendar" class="img-real"><figcaption class="img-caption">Solution overview — deal sheet &amp; calendar</figcaption></figure>
+  </div>
+</section>
+
+<!-- Design process -->
+<section class="case-section">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Design process</div>
+    <h2 class="case-heading" style="margin-bottom:28px;">From ideation to final design</h2>
+    <p class="case-body" style="max-width:700px; margin-bottom:40px;">After reviewing user flows and use cases, the tool was structured around the deal sheet and calendar. Lo-fi wireframes were tested with users and iterated multiple times based on feedback.</p>
+
+    <div class="grid-img-2" style="margin-bottom:40px;">
+      <figure><img src="assets/images/ngs-lofi-deal-sheet.png" alt="Lo-fi wireframe — deal sheet" class="img-real"><figcaption class="img-caption">Lo-fi — deal sheet</figcaption></figure>
+      <figure><img src="assets/images/ngs-lofi-calendar.png" alt="Lo-fi wireframe — calendar" class="img-real"><figcaption class="img-caption">Lo-fi — calendar</figcaption></figure>
+    </div>
+
+    <div class="eyebrow" style="margin-bottom:16px;">Key design decisions</div>
+    <h2 class="case-heading" style="margin-bottom:28px;">3 major improvements</h2>
+
+    <div style="display:flex; flex-direction:column; gap:48px;">
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">01</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Broadening view from supplier to category level</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Based on user feedback, ACMs preferred to view different suppliers' products in one group to see clashing and substitutable products. Expanding the view enabled custom views drilling down to a particular assortment or zooming out to a whole category view.</p>
+        <figure><img src="assets/images/ngs-global-filter.png" alt="Global filter expanded view" class="img-real"><figcaption class="img-caption">Global filter — expanded view</figcaption></figure>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">02</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Moving insights to a side panel &amp; adding recommendations</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">The insights feature was moved from the main page to a side panel to free screen space. A recommendations tab was added to help users decide what actions to take from the insights.</p>
+        <figure><img src="assets/images/ngs-insights-panel.png" alt="Insights panel and recommendations" class="img-real"><figcaption class="img-caption">Insights panel &amp; recommendations</figcaption></figure>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">03</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Catering for different ways of working</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Added multiple colour schemes to show promo depth, classification, stage of progress, and price governance breaches — catering for different user preferences and working styles. Added customisable time period views for categories affected by seasonality.</p>
+        <div class="grid-img-2">
+          <figure><img src="assets/images/ngs-colour-schemes.png" alt="Colour scheme options" class="img-real"><figcaption class="img-caption">Colour scheme options</figcaption></figure>
+          <figure><img src="assets/images/ngs-time-period.png" alt="Time period view" class="img-real"><figcaption class="img-caption">Customisable time period view</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final solutions -->
+<section class="case-section case-section-alt">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Final design</div>
+    <h2 class="case-heading" style="margin-bottom:28px;">4 key features</h2>
+
+    <div style="display:flex; flex-direction:column; gap:48px;">
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">01 — Integration</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Shared promotions portal with supplier</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Enables users to send promotions directly to the supplier for review within the tool — removing discrepancy risk, reducing the burden of checking financial information, and allowing easy tracking of promotion status across all suppliers.</p>
+        <figure><img src="assets/images/ngs-portal-integration.gif" alt="Portal integration demo" class="img-real"><figcaption class="img-caption">Portal integration — supplier workflow</figcaption></figure>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">02 — Scenarios</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Scenario functionality to test and compare</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Enables users to create test scenarios in mock environments with different combinations of promotions, and compare financial information across proposals in one place.</p>
+        <figure><img src="assets/images/ngs-scenario-comparison.gif" alt="Scenario comparison demo" class="img-real"><figcaption class="img-caption">Scenario comparison functionality</figcaption></figure>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">03 — Forecasts</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Automated but editable forecasts</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Eliminates manual forecasting, enabling forward-looking planning. Users retain full control to adjust forecasts based on their greater category knowledge.</p>
+        <figure><img src="assets/images/ngs-forecasting.gif" alt="Automated forecasting demo" class="img-real"><figcaption class="img-caption">Automated forecasting</figcaption></figure>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">04 — Insights</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Smart insights &amp; recommendations</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">System-generated insights and recommendations help users find actionable opportunities to maximise revenue and profit growth — removing the need to use multiple tools.</p>
+        <figure><img src="assets/images/ngs-insights-recommendations.gif" alt="Smart insights and recommendations demo" class="img-real"><figcaption class="img-caption">Smart insights &amp; recommendations</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Learnings -->
+<section class="case-section">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Reflection</div>
+    <h2 class="case-heading" style="margin-bottom:40px;">Key learnings</h2>
+    <div class="grid-2" style="gap:48px;">
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        <div>
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); margin-bottom:8px; padding-bottom:10px; border-bottom:2px solid var(--green);">Simple is the way to go</p>
+          <p class="case-body" style="font-size:13px;">Users prefer the simplest way of achieving tasks. If the tool isn't easy to use, they won't use it. Users already have too many complex tools — they don't want to spend time onboarding onto another one.</p>
+        </div>
+        <div>
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); margin-bottom:8px; padding-bottom:10px; border-bottom:2px solid var(--green);">Design for a scalable product</p>
+          <p class="case-body" style="font-size:13px;">Having v2, v3, v4 in mind when designing today creates a smooth transition between versions — helping both user adoption and developer efficiency across updates.</p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <p style="font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--black); margin-bottom:8px; padding-bottom:10px; border-bottom:2px solid var(--green);">Involve engineering upfront</p>
+          <p class="case-body" style="font-size:13px;">Bringing engineers into the conversation during ideation helps reduce rework later. Understanding technical limitations upfront directly informs design strategy and prevents costly late-stage pivots.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case footer -->
+<div class="case-footer-nav">
+  <div class="container">
+    <div class="case-footer-inner">
+      <a href="index.html" class="case-footer-back">← Back to all work</a>
+      <div class="case-footer-next">
+        <span class="case-footer-next-label">Next project</span>
+        <a href="netflix.html" class="case-footer-next-title">Netflix Redesign →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer style="background:var(--black); padding:24px 56px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08);">
+  <a href="index.html" style="font-family:'Playfair Display',serif; font-size:15px; color:rgba(255,255,255,0.3); text-decoration:none;">Michelle Kim</a>
+  <span style="font-size:11px; color:rgba(255,255,255,0.2); letter-spacing:0.04em;">© 2025 · Sydney, AU</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

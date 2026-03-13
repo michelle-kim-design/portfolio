@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netflix Website Redesign — Michelle Kim</title>
+<meta name="description" content="Reducing cognitive overload and simplifying the decision-making process for content discovery on Netflix.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+
+.case-hero {
+  padding-top: 60px;
+  min-height: 80vh;
+  background: #1a0000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.case-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 40%, rgba(180,0,0,0.25) 0%, transparent 60%),
+              radial-gradient(ellipse at 20% 80%, rgba(180,0,0,0.1) 0%, transparent 50%);
+}
+
+.case-hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 56px;
+  max-width: 900px;
+}
+
+.case-hero-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  margin-bottom: 48px;
+  transition: color 0.2s;
+}
+.case-hero-back:hover { color: rgba(255,255,255,0.8); }
+
+.case-hero-eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e87777;
+  margin-bottom: 20px;
+}
+
+.case-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.case-hero-tagline {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 48px;
+}
+
+.case-hero-meta {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.case-meta-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  display: block;
+  margin-bottom: 4px;
+}
+.case-meta-value { font-size: 13px; color: rgba(255,255,255,0.75); }
+.case-meta-value a { color: #e87777; text-decoration: none; }
+
+/* ── Shared styles ── */
+.case-section { padding: 80px 0; border-bottom: 1px solid var(--rule); }
+.case-section:last-of-type { border-bottom: none; }
+.case-section-alt { background: var(--card); }
+
+.eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+
+.case-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  line-height: 1.15;
+}
+
+.case-body {
+  font-size: 14px;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.85;
+}
+.case-body strong { font-weight: 600; color: var(--black); }
+.case-body + .case-body { margin-top: 16px; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+.grid-img-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.grid-img-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+
+.img-placeholder {
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 28px;
+  text-align: center;
+}
+.img-placeholder.tall   { min-height: 260px; }
+.img-placeholder.medium { min-height: 180px; }
+.img-placeholder-label  { font-size: 10px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: #bbb; }
+.img-placeholder-desc   { font-size: 11px; color: #ccc; }
+
+.img-real { width: 100%; border-radius: 4px; border: 1px solid var(--rule); display: block; }
+
+.insight-card {
+  background: var(--green-light);
+  border-left: 3px solid var(--green);
+  padding: 20px 24px;
+  border-radius: 0 3px 3px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--black);
+  line-height: 1.6;
+}
+
+.user-quote {
+  background: var(--black);
+  border-radius: 4px;
+  padding: 28px 32px;
+  margin-bottom: 12px;
+}
+.user-quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.outcomes-list { display: flex; flex-direction: column; gap: 14px; }
+.outcome-item {
+  font-size: 13.5px;
+  color: #333;
+  line-height: 1.65;
+  padding-left: 18px;
+  position: relative;
+}
+.outcome-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--green);
+}
+.outcome-item strong { font-weight: 600; color: var(--black); }
+
+/* ── Case footer ── */
+.case-footer-nav {
+  background: var(--card);
+  padding: 48px 0;
+  border-top: 1px solid var(--rule);
+}
+.case-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.case-footer-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.case-footer-back:hover { color: var(--black); }
+.case-footer-prev { text-align: left; }
+.case-footer-prev-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  display: block;
+  margin-bottom: 4px;
+}
+.case-footer-prev-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--black);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+.case-footer-prev-title:hover { color: var(--green); }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) {
+  .case-hero-content { padding: 60px 24px; }
+  .grid-2, .grid-img-2, .grid-img-3 { grid-template-columns: 1fr; }
+  .case-footer-inner { flex-direction: column; gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">Michelle Kim</a>
+  <ul class="nav-links">
+    <li><a href="index.html#work">Work</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="case-hero" style="border-bottom:none;">
+  <div class="case-hero-bg"></div>
+  <div class="case-hero-content">
+    <a href="index.html" class="case-hero-back">← All work</a>
+    <div class="case-hero-eyebrow">Concept · Personal Project · 2021</div>
+    <h1 class="case-hero-title">Netflix Website<br>Redesign</h1>
+    <p class="case-hero-tagline">Reducing cognitive overload and simplifying the decision-making process for content discovery — by bringing ratings and social recommendations inside Netflix.</p>
+    <div class="case-hero-meta">
+      <div>
+        <span class="case-meta-label">Type</span>
+        <span class="case-meta-value">Concept / Personal project</span>
+      </div>
+      <div>
+        <span class="case-meta-label">Role</span>
+        <span class="case-meta-value">Solo UX / UI Designer</span>
+      </div>
+      <div>
+        <span class="case-meta-label">Prototype</span>
+        <span class="case-meta-value"><a href="https://www.figma.com/proto/3nzLYbPvzOsBdkLQpcrIy0/Netflix-project-final-product?node-id=1%3A104&page-id=0%3A1&scaling=scale-down-width" target="_blank">View in Figma →</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem -->
+<section class="case-section case-section-alt">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">The problem</div>
+    <h2 class="case-heading" style="margin-bottom:28px; max-width:700px;">Lost in a sea of content</h2>
+    <div class="grid-2" style="gap:48px; align-items:start;">
+      <p class="case-body">Netflix users often feel <strong>overwhelmed</strong> by the magnitude of content available — feeling lost, with the problem currently inadequately addressed by numerous and <strong>unreliable recommendations</strong>. Users routinely exit Netflix to search ratings and ask friends for recommendations, then return to watch.</p>
+      <div style="border-left:3px solid var(--green); padding-left:28px;">
+        <p style="font-family:'Playfair Display',serif; font-size:clamp(17px,2vw,22px); font-style:italic; font-weight:400; color:var(--black); line-height:1.5;">How do we reduce the time users spend deciding what to watch — without them having to leave Netflix to do it?</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research -->
+<section class="case-section">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Research</div>
+    <h2 class="case-heading" style="margin-bottom:20px;">Understanding the frustration</h2>
+    <p class="case-body" style="max-width:700px; margin-bottom:40px;">With this project stemming from a personal pain point, I conducted 8 one-on-one user interviews and collected 58 survey responses to validate whether others experienced the same problem — and more importantly, why.</p>
+
+    <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:40px;">
+      <div class="user-quote"><div class="user-quote-text">"Netflix recommendations are hopeless."</div></div>
+      <div class="user-quote"><div class="user-quote-text">"It's too overwhelming — there are too many selections and I end up wasting time endlessly browsing and not watching anything."</div></div>
+      <div class="user-quote"><div class="user-quote-text">"Most of the time, I decide what to watch through work colleagues' / friends' recommendations and then go online to look at reviews before making a decision."</div></div>
+    </div>
+
+    <div class="insight-card" style="margin-bottom:40px;">The majority of Netflix users seek sources outside of Netflix to decide what to watch — usually friends' recommendations or online ratings and reviews.</div>
+
+    <div class="grid-img-2">
+      <figure><img src="assets/images/nf-affinity-map.png" alt="Affinity map from research" class="img-real"><figcaption class="img-caption">Affinity map — themes from interviews &amp; surveys</figcaption></figure>
+      <figure><img src="assets/images/nf-survey-results.png" alt="Survey results — 58 responses" class="img-real"><figcaption class="img-caption">Survey results — 58 responses</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Personas -->
+<section class="case-section case-section-alt">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Personas</div>
+    <h2 class="case-heading" style="margin-bottom:20px;">Harris &amp; Jennifer</h2>
+    <p class="case-body" style="max-width:700px; margin-bottom:32px;">Representing busy Netflix users who rely on friends' recommendations and external reviews before committing to watch something.</p>
+    <div class="grid-img-2">
+      <figure><img src="assets/images/nf-persona-harris.png" alt="Harris Stevenson persona" class="img-real"><figcaption class="img-caption">Persona — Harris Stevenson</figcaption></figure>
+      <figure><img src="assets/images/nf-persona-jennifer.png" alt="Jennifer Lee persona" class="img-real"><figcaption class="img-caption">Persona — Jennifer Lee</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- Solution -->
+<section class="case-section">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">The solution</div>
+    <h2 class="case-heading" style="margin-bottom:28px;">Bring the decision-making tools inside Netflix</h2>
+    <p class="case-body" style="max-width:700px; margin-bottom:40px;">After ideation through Crazy 8s, MVP matrix and dot voting with peers, three key features were identified as the most effective solution:</p>
+
+    <div style="display:flex; flex-direction:column; gap:40px;">
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">01</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">External ratings (Rotten Tomatoes / IMDB)</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Many users searched ratings and reviews before committing to watch. Bringing this inside Netflix saves time and effort — no need to exit the platform.</p>
+        <figure><img src="assets/images/nf-lofi-ratings.png" alt="External ratings lo-fi wireframe" class="img-real"><figcaption class="img-caption">External ratings — lo-fi wireframe</figcaption></figure>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">02</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Share recommendations between friends</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">37.9% of users currently find content by asking friends for recommendations — communicating outside of Netflix entirely. This feature enables sharing and receiving recommendations directly within the platform.</p>
+        <figure><img src="assets/images/nf-lofi-share.png" alt="Share recommendations lo-fi wireframe" class="img-real"><figcaption class="img-caption">Share recommendations — lo-fi wireframe</figcaption></figure>
+      </div>
+
+      <div>
+        <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">03</p>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">View friends' recently watched / rated</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Users regularly ask friends what they've watched and enjoyed. A social "My Community" hub enables users to browse friends' activity and receive recommendations without leaving Netflix.</p>
+        <figure><img src="assets/images/nf-lofi-recently-watched.png" alt="Friends recently watched lo-fi wireframe" class="img-real"><figcaption class="img-caption">Friends' recently watched — lo-fi wireframe</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Design iteration -->
+<section class="case-section case-section-alt">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Testing &amp; iteration</div>
+    <h2 class="case-heading" style="margin-bottom:28px;">2 major improvements from testing</h2>
+
+    <div style="display:flex; flex-direction:column; gap:40px;">
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">1. Less clicks</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">To reduce clicks and incorporate the social aspect more seamlessly, I combined the two screens for sharing content into one — listing Netflix users at the top and showing options for sharing outside Netflix underneath.</p>
+        <figure><img src="assets/images/nf-iteration-sharing.png" alt="Before and after sharing flow iteration" class="img-real"><figcaption class="img-caption">Before / after — sharing flow iteration</figcaption></figure>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">2. Easier visibility</h3>
+        <p class="case-body" style="max-width:680px; margin-bottom:20px;">The "My Community" page was updated to combine the list of friends with their recommendations, rather than showing them separately — enabling users to quickly scan friends' recommendations without extra navigation.</p>
+        <figure><img src="assets/images/nf-iteration-community.png" alt="My Community improved layout" class="img-real"><figcaption class="img-caption">My Community — improved layout</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final design -->
+<section class="case-section">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:16px;">Final design</div>
+    <h2 class="case-heading" style="margin-bottom:20px;">Hi-fi prototype</h2>
+    <p class="case-body" style="max-width:700px; margin-bottom:32px;">Re-created in Figma adapting Netflix's existing UI, incorporating all feedback from lo-fi testing with consistent brand typography and colour.</p>
+    <div class="grid-img-2" style="margin-bottom:16px;">
+      <figure><img src="assets/images/nf-hifi-ratings-sharing.png" alt="Hi-fi external ratings and sharing" class="img-real"><figcaption class="img-caption">Hi-fi — external ratings &amp; sharing</figcaption></figure>
+      <figure><img src="assets/images/nf-hifi-community.png" alt="Hi-fi My Community page" class="img-real"><figcaption class="img-caption">Hi-fi — My Community page</figcaption></figure>
+    </div>
+    <div style="text-align:center; margin-top:32px;">
+      <a href="https://www.figma.com/proto/3nzLYbPvzOsBdkLQpcrIy0/Netflix-project-final-product?node-id=1%3A104&page-id=0%3A1&scaling=scale-down-width" target="_blank" class="btn btn-dark">View final prototype in Figma →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Metrics & Learnings -->
+<section class="case-section case-section-alt">
+  <div class="container">
+    <div class="grid-2" style="gap:64px; align-items:start;">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px;">Success metrics</div>
+        <h2 class="case-heading" style="margin-bottom:20px; font-size:clamp(22px,2.5vw,32px);">How I'd measure success</h2>
+        <div class="outcomes-list">
+          <div class="outcome-item">Increase in user retention rate</div>
+          <div class="outcome-item">High frequency of use of the new features</div>
+          <div class="outcome-item">Shorter time to choose content to watch</div>
+          <div class="outcome-item">Higher time on platform per session</div>
+          <div class="outcome-item">Decrease in frustration signals during browsing</div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px;">Reflection</div>
+        <h2 class="case-heading" style="margin-bottom:20px; font-size:clamp(22px,2.5vw,32px);">Key learnings</h2>
+        <p class="case-body" style="margin-bottom:16px;">This project required adapting a social media system within a content streaming platform without shifting focus from Netflix's primary function — a design challenge that required careful balance of new features against existing UX familiarity.</p>
+        <p class="case-body">With more time, I would incorporate a newsfeed in the My Community function, add comments and ratings from friends in content description pages, and extend the changes to mobile and TV platforms.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case footer -->
+<div class="case-footer-nav">
+  <div class="container">
+    <div class="case-footer-inner">
+      <div class="case-footer-prev">
+        <span class="case-footer-prev-label">Previous project</span>
+        <a href="next-gen-slotter.html" class="case-footer-prev-title">← Next Gen Slotter</a>
+      </div>
+      <a href="index.html" class="case-footer-back">Back to all work →</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:var(--black); padding:24px 56px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08);">
+  <a href="index.html" style="font-family:'Playfair Display',serif; font-size:15px; color:rgba(255,255,255,0.3); text-decoration:none;">Michelle Kim</a>
+  <span style="font-size:11px; color:rgba(255,255,255,0.2); letter-spacing:0.04em;">© 2025 · Sydney, AU</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
