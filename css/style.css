@@ -1,0 +1,107 @@
+/* ============================================
+   MICHELLE KIM — PORTFOLIO
+   Shared stylesheet
+   ============================================ */
+
+:root {
+  --black:       #111110;
+  --white:       #fafaf7;
+  --mid:         #777770;
+  --rule:        #e4e2dc;
+  --card:        #f4f3ef;
+  --green:       #358600;
+  --green-dim:   #2a6a00;
+  --green-light: #f0f7eb;
+  --green-mid:   #c8e0b0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ── SHARED NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 56px;
+  background: rgba(250,250,247,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--black);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mid);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--black); }
+
+.nav-cta {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: var(--white) !important;
+  background: var(--black);
+  padding: 8px 20px;
+  border-radius: 40px;
+  letter-spacing: 0.04em !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--green) !important; }
+
+/* ── SHARED ANIMATIONS ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── SHARED BUTTON ── */
+.btn-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 12px 28px;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-dark:hover { background: var(--green); transform: translateY(-1px); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 24px; }
+  .nav-links li:not(:last-child) { display: none; }
+}
