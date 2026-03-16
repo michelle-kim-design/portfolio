@@ -4,21 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Range &amp; Space — ART | Michelle Kim</title>
-<meta name="description" content="Transforming a critical but unscalable tool into a unified web platform that empowers Woolworths Range Analysts to conduct category reviews faster, more independently and with clearer outcomes for Category Managers.">
+<meta name="description" content="Transforming a critical but unscalable tool into a unified web platform that empowers Woolworths Range Analysts to conduct category reviews faster.">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
 
 body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
 
-/* ══════════════════════════════
-   CASE STUDY STYLES
-══════════════════════════════ */
+/* ─────────────────────────────
+   READING WIDTH + PADDING
+   Max 800px, centred, 48px sides
+───────────────────────────── */
+.content-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
 
-/* ── CASE HERO ── */
+/* ─────────────────────────────
+   HERO
+───────────────────────────── */
 .case-hero {
   padding-top: 60px;
-  min-height: 85vh;
+  min-height: 82vh;
   background: #0f1f08;
   position: relative;
   display: flex;
@@ -30,18 +38,21 @@ body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
 .case-hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 50%, rgba(53,134,0,0.18) 0%, transparent 65%),
-              radial-gradient(ellipse at 20% 80%, rgba(53,134,0,0.1) 0%, transparent 50%);
+  background:
+    radial-gradient(ellipse at 70% 50%, rgba(53,134,0,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse at 20% 80%, rgba(53,134,0,0.1) 0%, transparent 50%);
 }
 
-.case-hero-content {
+.case-hero-inner {
   position: relative;
   z-index: 2;
-  padding: 80px 56px;
-  max-width: 900px;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 72px 32px;
+  width: 100%;
 }
 
-.case-hero-back {
+.case-back {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -50,51 +61,49 @@ body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
   color: rgba(255,255,255,0.4);
   text-decoration: none;
   letter-spacing: 0.04em;
-  margin-bottom: 48px;
+  margin-bottom: 44px;
   transition: color 0.2s;
 }
+.case-back:hover { color: rgba(255,255,255,0.8); }
 
-.case-hero-back:hover { color: rgba(255,255,255,0.8); }
-
-.case-hero-eyebrow {
+.hero-eyebrow {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--green-mid);
-  margin-bottom: 20px;
+  color: #b8d99a;
+  margin-bottom: 16px;
 }
 
-.case-hero-title {
+.hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(40px, 6vw, 72px);
+  font-size: clamp(40px, 6vw, 68px);
   font-weight: 400;
   color: #fff;
   line-height: 1.0;
   letter-spacing: -0.03em;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-.case-hero-tagline {
+.hero-tagline {
   font-size: 16px;
   font-weight: 300;
   color: rgba(255,255,255,0.6);
-  line-height: 1.7;
-  max-width: 580px;
-  margin-bottom: 48px;
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 44px;
 }
 
-.case-hero-meta {
+.hero-meta {
   display: flex;
-  gap: 48px;
+  gap: 40px;
   flex-wrap: wrap;
-  padding-top: 32px;
+  padding-top: 28px;
   border-top: 1px solid rgba(255,255,255,0.12);
 }
 
-.case-hero-meta-item {}
-
-.case-meta-label {
+.meta-item {}
+.meta-label {
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -103,603 +112,536 @@ body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
   display: block;
   margin-bottom: 4px;
 }
+.meta-value { font-size: 13px; color: rgba(255,255,255,0.75); }
+.meta-value a { color: #b8d99a; text-decoration: none; }
 
-.case-meta-value {
-  font-size: 13px;
-  color: rgba(255,255,255,0.75);
+/* ─────────────────────────────
+   IMPACT STATS BAR
+───────────────────────────── */
+.stats-bar {
+  background: #358600;
 }
 
-/* ── IMPACT STATS ── */
-.impact-stats {
-  background: var(--green);
-  padding: 0;
-  border-bottom: none;
-}
-
-.impact-stats-inner {
+.stats-bar-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 32px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
-.stat-block {
-  padding: 36px 32px;
+.stat {
+  padding: 32px 28px;
   border-right: 1px solid rgba(255,255,255,0.2);
-  text-align: left;
 }
+.stat:last-child { border-right: none; }
 
-.stat-block:last-child { border-right: none; }
-
-.stat-number {
+.stat-num {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: clamp(24px, 3vw, 36px);
   font-weight: 400;
   color: #fff;
   line-height: 1;
   margin-bottom: 6px;
   letter-spacing: -0.02em;
 }
-
-.stat-label {
+.stat-lbl {
   font-size: 11px;
   font-weight: 400;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.72);
   line-height: 1.5;
 }
 
-/* ── CASE LAYOUT ── */
-.case-section {
-  padding: 80px 0;
+/* ─────────────────────────────
+   SECTIONS
+───────────────────────────── */
+.cs-section {
+  padding: 64px 0;
+  border-bottom: 1px solid #e4e2dc;
+}
+.cs-section:last-of-type { border-bottom: none; }
+.cs-section.alt { background: #f4f3ef; }
+
+/* ─────────────────────────────
+   TYPOGRAPHY
+───────────────────────────── */
+.eyebrow {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #358600;
+  margin-bottom: 12px;
+  display: block;
 }
 
-.case-section-alt {
-  background: var(--card);
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #111110;
+  line-height: 1.15;
+  margin-bottom: 24px;
 }
 
-.case-grid {
+.body-text {
+  font-size: 15px;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+.body-text:last-child { margin-bottom: 0; }
+.body-text strong { font-weight: 600; color: #111110; }
+
+/* Two-col layout for overview */
+.two-col {
   display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 64px;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
   align-items: start;
 }
 
-.case-sidebar {
-  position: sticky;
-  top: 80px;
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid #358600;
+  padding-left: 24px;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(17px, 2vw, 22px);
+  font-style: italic;
+  font-weight: 400;
+  color: #111110;
+  line-height: 1.55;
+  margin: 32px 0 0;
 }
 
-.case-sidebar-num {
+/* ─────────────────────────────
+   IMAGES
+───────────────────────────── */
+.case-img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid #e4e2dc;
+}
+
+.case-img-caption {
   font-size: 11px;
-  font-weight: 600;
+  color: #777770;
+  margin-top: 8px;
+  font-style: italic;
+  text-align: center;
+  display: block;
+}
+
+figure { margin: 0; }
+
+.img-gap { margin-top: 32px; }
+
+/* ─────────────────────────────
+   PROCESS STEPS — SIDEBAR LAYOUT
+───────────────────────────── */
+.step {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: start;
+  padding-bottom: 64px;
+  margin-bottom: 64px;
+  border-bottom: 1px solid #e4e2dc;
+}
+.step:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+.step-sidebar { position: sticky; top: 80px; }
+
+.step-num {
+  font-size: 10px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--green);
-  margin-bottom: 6px;
+  color: #358600;
+  margin-bottom: 4px;
 }
 
-.case-sidebar-title {
+.step-title {
   font-family: 'Playfair Display', serif;
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 400;
-  color: var(--black);
-  line-height: 1.2;
+  color: #111110;
+  line-height: 1.25;
   margin-bottom: 20px;
 }
 
-.case-sidebar-meta {
+.step-meta {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding-top: 20px;
-  border-top: 1px solid var(--rule);
+  padding-top: 16px;
+  border-top: 1px solid #e4e2dc;
 }
 
-.sidebar-meta-row {}
-
-.sidebar-meta-label {
+.meta-row-label {
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--mid);
+  color: #777770;
   display: block;
   margin-bottom: 4px;
 }
 
-.sidebar-meta-value {
+.meta-row-value {
   font-size: 12px;
-  color: var(--black);
+  color: #111110;
   line-height: 1.5;
 }
 
-.timeframe-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  margin-top: 4px;
-}
-
-.tf-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.tf-label { font-size: 10px; color: var(--mid); }
-
+.tf-rows { display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
+.tf-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tf-label { font-size: 10px; color: #777770; }
 .tf-pill {
   font-size: 10px;
   font-weight: 600;
-  background: var(--card);
-  border: 1px solid var(--rule);
+  background: #f4f3ef;
+  border: 1px solid #e4e2dc;
   padding: 2px 10px;
   border-radius: 20px;
   white-space: nowrap;
 }
 
-/* ── CASE CONTENT ── */
-.case-content { display: flex; flex-direction: column; gap: 28px; }
+.step-content { display: flex; flex-direction: column; gap: 24px; }
 
-.insight-card {
-  background: var(--green-light);
-  border-left: 3px solid var(--green);
-  padding: 20px 24px;
+/* Insight card */
+.insight {
+  background: #f0f7eb;
+  border-left: 3px solid #358600;
+  padding: 18px 22px;
   border-radius: 0 3px 3px 0;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--black);
+  color: #111110;
   line-height: 1.6;
 }
 
-.case-body {
-  font-size: 14px;
-  font-weight: 300;
-  color: #444;
-  line-height: 1.85;
-}
-
-.case-body strong { font-weight: 600; color: var(--black); }
-
+/* Outcomes list */
 .outcomes-label {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--green);
-  margin-bottom: 14px;
+  color: #358600;
+  margin-bottom: 12px;
   display: block;
 }
 
-.outcomes-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
+.outcomes { display: flex; flex-direction: column; gap: 12px; }
 
 .outcome-item {
-  font-size: 13.5px;
+  font-size: 13px;
   color: #333;
   line-height: 1.65;
-  padding-left: 18px;
+  padding-left: 16px;
   position: relative;
 }
-
 .outcome-item::before {
   content: '';
   position: absolute;
-  left: 0;
-  top: 8px;
-  width: 5px;
-  height: 5px;
+  left: 0; top: 7px;
+  width: 5px; height: 5px;
   border-radius: 50%;
-  background: var(--green);
+  background: #358600;
 }
+.outcome-item strong { font-weight: 600; color: #111110; }
 
-.outcome-item strong { font-weight: 600; color: var(--black); }
-
-.ai-callout {
-  background: var(--green-light);
+/* AI note */
+.ai-note {
+  background: #f0f7eb;
   border: 1px solid #c0dba8;
   border-radius: 3px;
-  padding: 18px 22px;
+  padding: 16px 20px;
 }
-
-.ai-callout-label {
+.ai-note-label {
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--green);
+  color: #358600;
   margin-bottom: 6px;
 }
+.ai-note-text { font-size: 13px; color: #2a4a1a; line-height: 1.65; }
 
-.ai-callout-text {
-  font-size: 13px;
-  color: #2a4a1a;
-  line-height: 1.65;
-}
-
-/* ── IMAGE PLACEHOLDERS ── */
-.img-placeholder {
-  background: var(--card);
-  border: 1px solid var(--rule);
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 28px;
-  text-align: center;
-}
-
-.img-placeholder.tall   { min-height: 260px; }
-.img-placeholder.medium { min-height: 180px; }
-.img-placeholder.short  { min-height: 120px; }
-
-.img-placeholder-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: #bbb;
-}
-
-.img-placeholder-desc {
-  font-size: 11px;
-  color: #ccc;
-}
-
-/* Replace with real image */
-.img-real {
-  width: 100%;
-  border-radius: 4px;
-  border: 1px solid var(--rule);
-  display: block;
-}
-
-.img-caption {
-  font-size: 11px;
-  color: var(--mid);
-  margin-top: 8px;
-  text-align: center;
-  font-style: italic;
-}
-
+/* Grid layouts for images */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 
-/* ── USER QUOTE ── */
+/* User quote */
 .user-quote {
-  background: var(--black);
+  background: #111110;
   border-radius: 4px;
-  padding: 28px 32px;
+  padding: 24px 28px;
 }
-
 .user-quote-text {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 18px;
   font-style: italic;
-  font-weight: 400;
   color: #fff;
   line-height: 1.5;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
-
-.user-quote-cite {
+.user-quote-source {
   font-size: 11px;
   color: rgba(255,255,255,0.4);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
-/* ── AI PROCESS DARK ── */
-.ai-process-section {
-  background: var(--black);
-  padding: 80px 0;
+/* ─────────────────────────────
+   AI PROCESS SECTION (dark)
+───────────────────────────── */
+.ai-section {
+  background: #111110;
+  padding: 64px 0;
+  border-bottom: 1px solid #1a1a18;
 }
 
-.ai-process-eyebrow {
+.ai-eyebrow {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #555;
-  margin-bottom: 12px;
+  color: #888;
+  margin-bottom: 10px;
+  display: block;
 }
 
-.ai-process-title {
+.ai-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 3vw, 38px);
+  font-size: clamp(22px, 3vw, 32px);
   font-weight: 400;
-  color: var(--white);
+  color: #fafaf7;
   letter-spacing: -0.02em;
   margin-bottom: 8px;
 }
 
-.ai-process-sub {
+.ai-sub {
   font-size: 13px;
-  color: #555;
+  color: #999;
   font-weight: 300;
-  margin-bottom: 48px;
-  max-width: 500px;
+  margin-bottom: 40px;
   line-height: 1.6;
 }
 
-.flow-compare { display: flex; flex-direction: column; gap: 32px; }
+.flow-compare { display: flex; flex-direction: column; gap: 28px; }
 
 .flow-block-label {
   font-size: 12px;
   font-weight: 600;
-  color: var(--white);
-  margin-bottom: 4px;
+  color: #fafaf7;
+  margin-bottom: 3px;
 }
+.flow-block-sub { font-size: 10px; color: #888; letter-spacing: 0.04em; margin-bottom: 12px; }
 
-.flow-block-sub {
-  font-size: 10px;
-  color: #555;
-  letter-spacing: 0.04em;
-  margin-bottom: 14px;
-}
-
-.flow-steps {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+.flow-steps { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
 
 .flow-step {
   background: #1c1c1a;
   border: 1px solid #2a2a28;
-  padding: 9px 16px;
+  padding: 8px 14px;
   font-size: 12px;
   font-weight: 500;
-  color: var(--white);
+  color: #fafaf7;
   border-radius: 3px;
   white-space: nowrap;
 }
-
-.flow-step.highlight {
+.flow-step.on {
   background: rgba(53,134,0,0.15);
   border-color: rgba(53,134,0,0.4);
   color: #a8d88a;
 }
+.flow-arrow { color: #555; font-size: 13px; }
+.flow-divider { height: 1px; background: #1e1e1c; }
 
-.flow-arrow { color: #333; font-size: 14px; }
-
-.flow-divider { height: 1px; background: #1e1e1c; margin: 4px 0; }
-
-.how-it-works {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #1e1e1c;
-}
-
-.how-it-works-label {
+.how-label {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #555;
-  margin-bottom: 20px;
+  color: #888;
+  margin-bottom: 16px;
+  margin-top: 36px;
+  display: block;
 }
 
-.how-bullets { display: flex; flex-direction: column; gap: 14px; }
+.how-bullets { display: flex; flex-direction: column; gap: 12px; }
+.how-bullet { display: flex; gap: 14px; font-size: 13px; color: #aaa; line-height: 1.65; }
+.how-num { font-size: 10px; font-weight: 600; color: #888; flex-shrink: 0; padding-top: 2px; width: 18px; }
 
-.how-bullet {
-  display: flex;
-  gap: 16px;
-  font-size: 13px;
-  color: #777;
-  line-height: 1.6;
-}
-
-.how-bullet-num {
-  font-size: 10px;
-  font-weight: 600;
-  color: #444;
-  flex-shrink: 0;
-  padding-top: 2px;
-  width: 18px;
-}
-
-/* ── OUTCOMES GRID ── */
+/* ─────────────────────────────
+   OUTCOMES GRID
+───────────────────────────── */
 .outcomes-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
-  background: var(--rule);
-  border: 1px solid var(--rule);
+  background: #e4e2dc;
+  border: 1px solid #e4e2dc;
   border-radius: 4px;
   overflow: hidden;
-  margin-top: 40px;
+  margin-top: 32px;
 }
-
 .outcomes-card {
-  background: var(--white);
-  padding: 32px 28px;
+  background: #fafaf7;
+  padding: 28px 24px;
 }
-
 .outcomes-card-title {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--mid);
-  margin-bottom: 20px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid var(--rule);
+  color: #777770;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e4e2dc;
 }
+.outcomes-card-list { display: flex; flex-direction: column; gap: 12px; }
+.outcomes-card-item { font-size: 13px; color: #333; line-height: 1.55; }
+.outcomes-card-item strong { display: block; font-weight: 600; color: #111110; margin-bottom: 2px; }
 
-.outcomes-list-2 { display: flex; flex-direction: column; gap: 12px; }
-
-.outcomes-list-item {
-  font-size: 13px;
-  color: #333;
-  line-height: 1.55;
-}
-
-.outcomes-list-item strong {
-  display: block;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 2px;
-}
-
-/* ── LEARNINGS ── */
+/* ─────────────────────────────
+   LEARNINGS
+───────────────────────────── */
 .learnings-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
-  margin-top: 40px;
+  margin-top: 32px;
 }
-
 .learning-col h3 {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--black);
-  margin-bottom: 20px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--green);
+  color: #111110;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #358600;
 }
+.learning-items { display: flex; flex-direction: column; gap: 16px; }
+.learning-item { font-size: 13px; color: #444; line-height: 1.65; }
+.learning-item strong { display: block; font-weight: 600; color: #111110; margin-bottom: 2px; }
 
-.learning-items { display: flex; flex-direction: column; gap: 18px; }
-
-.learning-item {
-  font-size: 13px;
-  color: #444;
-  line-height: 1.65;
-}
-
-.learning-item strong {
-  display: block;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 3px;
-}
-
-/* ── PROTOTYPE LINK ── */
-.prototype-block {
-  background: var(--green);
+/* ─────────────────────────────
+   PROTOTYPE CTA
+───────────────────────────── */
+.proto-block {
+  background: #358600;
   border-radius: 4px;
-  padding: 36px 40px;
+  padding: 32px 36px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 24px;
   flex-wrap: wrap;
-  margin-top: 40px;
 }
-
-.prototype-text h3 {
+.proto-block h3 {
   font-family: 'Playfair Display', serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   color: #fff;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
-
-.prototype-text p {
-  font-size: 13px;
-  color: rgba(255,255,255,0.7);
-}
-
-.prototype-link {
+.proto-block p { font-size: 13px; color: rgba(255,255,255,0.7); }
+.proto-link {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background: #fff;
-  color: var(--green-dim);
+  color: #2a6a00;
   font-size: 13px;
   font-weight: 600;
-  padding: 14px 28px;
+  padding: 12px 24px;
   border-radius: 40px;
   text-decoration: none;
   white-space: nowrap;
   transition: all 0.2s;
   letter-spacing: 0.02em;
 }
+.proto-link:hover { background: #111110; color: #fff; }
 
-.prototype-link:hover { background: var(--black); color: #fff; }
-
-/* ── CASE FOOTER ── */
-.case-footer-nav {
-  background: var(--card);
+/* ─────────────────────────────
+   FOOTER NAV
+───────────────────────────── */
+.case-footer {
+  background: #f4f3ef;
   padding: 48px 0;
-  border-top: 1px solid var(--rule);
+  border-top: 1px solid #e4e2dc;
 }
-
 .case-footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-.case-footer-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.footer-back {
   font-size: 13px;
   font-weight: 500;
-  color: var(--mid);
+  color: #777770;
   text-decoration: none;
   transition: color 0.2s;
 }
-
-.case-footer-back:hover { color: var(--black); }
-
-.case-footer-next {
-  text-align: right;
-}
-
-.case-footer-next-label {
+.footer-back:hover { color: #111110; }
+.footer-next { text-align: right; }
+.footer-next-label {
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--mid);
+  color: #777770;
   display: block;
   margin-bottom: 4px;
 }
-
-.case-footer-next-title {
+.footer-next-link {
   font-family: 'Playfair Display', serif;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 400;
-  color: var(--black);
+  color: #111110;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
   transition: color 0.2s;
 }
+.footer-next-link:hover { color: #358600; }
 
-.case-footer-next-title:hover { color: var(--green); }
-
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .case-hero-content { padding: 60px 24px; }
-  .case-hero-meta { gap: 28px; }
-  .impact-stats-inner { grid-template-columns: 1fr 1fr; }
-  .stat-block { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
-  .case-grid { grid-template-columns: 1fr; gap: 32px; }
-  .case-sidebar { position: static; }
-  .outcomes-grid { grid-template-columns: 1fr; }
-  .learnings-grid { grid-template-columns: 1fr; gap: 32px; }
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-  .prototype-block { flex-direction: column; align-items: flex-start; }
-  .case-footer-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
-  .case-footer-next { text-align: left; }
+/* ─────────────────────────────
+   FADE ANIMATION
+───────────────────────────── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
 
+/* ─────────────────────────────
+   RESPONSIVE
+───────────────────────────── */
+@media (max-width: 860px) {
+  .content-wrap { padding: 0 24px; }
+  .case-hero-inner { padding: 56px 24px; }
+  .stats-bar-inner { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr; gap: 28px; }
+  .step { grid-template-columns: 1fr; gap: 24px; }
+  .step-sidebar { position: static; }
+  .outcomes-grid { grid-template-columns: 1fr; }
+  .learnings-grid { grid-template-columns: 1fr; gap: 28px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .proto-block { flex-direction: column; align-items: flex-start; }
+  .case-footer-inner { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .footer-next { text-align: left; }
+}
 </style>
 </head>
 <body>
 
-<!-- Navigation -->
+<!-- ── NAV ── -->
 <nav>
   <a href="index.html" class="nav-brand">Michelle Kim</a>
   <ul class="nav-links">
@@ -709,118 +651,121 @@ body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
   </ul>
 </nav>
 
-<!-- Case Hero -->
-<section class="case-hero" style="border-bottom:none;">
+<!-- ── HERO ── -->
+<section class="case-hero">
   <div class="case-hero-bg"></div>
-  <div class="case-hero-content">
-    <a href="index.html" class="case-hero-back">← All work</a>
-    <div class="case-hero-eyebrow">UX / UI Design · Woolworths · 2024–2025</div>
-    <h1 class="case-hero-title">Range &amp; Space<br>— ART</h1>
-    <p class="case-hero-tagline">Transforming a critical but unscalable tool into a unified web platform that empowers Woolworths Range Analysts to conduct category reviews faster, more independently and with clearer outcomes for Category Managers.</p>
-    <div class="case-hero-meta">
-      <div class="case-hero-meta-item">
-        <span class="case-meta-label">Role</span>
-        <span class="case-meta-value">UX / UI Designer</span>
+  <div class="case-hero-inner">
+    <a href="index.html" class="case-back">← All work</a>
+    <div class="hero-eyebrow">UX / UI Design · Woolworths · 2024–2025</div>
+    <h1 class="hero-title">Range &amp; Space<br>— ART</h1>
+    <p class="hero-tagline">Transforming a critical but unscalable tool into a unified web platform that empowers Woolworths Range Analysts to conduct category reviews faster, more independently and with clearer outcomes for Category Managers.</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Role</span>
+        <span class="meta-value">UX / UI Designer</span>
       </div>
-      <div class="case-hero-meta-item">
-        <span class="case-meta-label">Team</span>
-        <span class="case-meta-value">Design team of 2</span>
+      <div class="meta-item">
+        <span class="meta-label">Team</span>
+        <span class="meta-value">Design team of 2</span>
       </div>
-      <div class="case-hero-meta-item">
-        <span class="case-meta-label">Duration</span>
-        <span class="case-meta-value">April 2024 — December 2025</span>
+      <div class="meta-item">
+        <span class="meta-label">Duration</span>
+        <span class="meta-value">April 2024 — December 2025</span>
       </div>
-      <div class="case-hero-meta-item">
-        <span class="case-meta-label">Status</span>
-        <span class="case-meta-value">Designs complete, development initiated</span>
-      </div>
-      <div class="case-hero-meta-item">
-        <span class="case-meta-label">Prototype</span>
-        <span class="case-meta-value"><a href="https://www.figma.com/proto/0Zm8EDdIg90ZDHoEobbTGx/Range---Space---E2E-prototype?page-id=0%3A1&node-id=1-52004&viewport=1161%2C571%2C0.1&t=A13jN5Z81Xbbowrv-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A52004" target="_blank" style="color:var(--green-mid);text-decoration:none;">View in Figma →</a></span>
+      <div class="meta-item">
+        <span class="meta-label">Prototype</span>
+        <span class="meta-value"><a href="https://www.figma.com/proto/0Zm8EDdIg90ZDHoEobbTGx/Range---Space---E2E-prototype?page-id=0%3A1&node-id=1-52004&viewport=1161%2C571%2C0.1&t=A13jN5Z81Xbbowrv-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A52004" target="_blank">View in Figma →</a></span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Impact stats -->
-<div class="impact-stats">
-  <div class="impact-stats-inner">
-    <div class="stat-block">
-      <div class="stat-number">~$46bn</div>
-      <div class="stat-label">Annual sales influenced through range reviews</div>
+<!-- ── IMPACT STATS ── -->
+<div class="stats-bar">
+  <div class="stats-bar-inner">
+    <div class="stat">
+      <div class="stat-num">~$46bn</div>
+      <div class="stat-lbl">Annual sales influenced through range reviews</div>
     </div>
-    <div class="stat-block">
-      <div class="stat-number">~$800m</div>
-      <div class="stat-label">Lost sales addressed through better ranging</div>
+    <div class="stat">
+      <div class="stat-num">~$800m</div>
+      <div class="stat-lbl">Lost sales addressed through better ranging</div>
     </div>
-    <div class="stat-block">
-      <div class="stat-number">1–2%</div>
-      <div class="stat-label">Typical category sales uplift from data-driven ranging</div>
+    <div class="stat">
+      <div class="stat-num">1–2%</div>
+      <div class="stat-lbl">Typical category sales uplift from data-driven ranging</div>
     </div>
-    <div class="stat-block">
-      <div class="stat-number">280</div>
-      <div class="stat-label">Range reviews per year underpinned by the platform</div>
+    <div class="stat">
+      <div class="stat-num">280</div>
+      <div class="stat-lbl">Range reviews per year underpinned by the platform</div>
     </div>
   </div>
 </div>
 
-<!-- Overview -->
-<section class="case-section">
-  <div class="container">
-    <div class="grid-2" style="gap:64px; align-items:start;">
+<!-- ── OVERVIEW ── -->
+<section class="cs-section">
+  <div class="content-wrap">
+    <div class="two-col">
       <div>
-        <div class="eyebrow" style="margin-bottom:16px;">About this project</div>
-        <p class="case-body">A <strong>centralised web application</strong> replacing Woolworths' fragmented Google Sheets-based Assortment Recommender Tool (ART), designed for Range Analysts to efficiently manage category range reviews across the 900+ store network. Through our UX process, we identified that users' core needs were to <strong>reduce manual effort and time spent on data validation</strong>, and gain a clearer, more confident way to <strong>communicate ranging decisions to Category Managers</strong> — all within one unified platform.</p>
+        <span class="eyebrow">About this project</span>
+        <p class="body-text">A <strong>centralised web application</strong> replacing Woolworths' fragmented Google Sheets-based Assortment Recommender Tool (ART), designed for Range Analysts to efficiently manage category range reviews across the 900+ store network.</p>
+        <p class="body-text">Through our UX process, we identified that users' core needs were to <strong>reduce manual effort and time spent on data validation</strong>, and gain a clearer, more confident way to <strong>communicate ranging decisions to Category Managers</strong> — all within one unified platform.</p>
       </div>
       <div>
-        <div class="eyebrow" style="margin-bottom:16px;">My role</div>
-        <p class="case-body" style="margin-bottom:12px;">UX / UI Designer — end-to-end across the full project.</p>
-        <p class="case-body">User Research, Jobs-to-be-Done, Persona Development, Information Architecture, Wireframing, Prototyping, User Testing and Developer Handoff. AI-assisted design using Claude — accelerating research synthesis, conceptual design, wireframing, rapid prototyping, synthetic testing and documentation throughout.</p>
+        <span class="eyebrow">My role</span>
+        <p class="body-text">UX / UI Designer — end-to-end across the full project.</p>
+        <p class="body-text">User Research, Jobs-to-be-Done, Persona Development, Information Architecture, Wireframing, Prototyping, User Testing and Developer Handoff. AI-assisted design using Claude — accelerating research synthesis, conceptual design, wireframing, rapid prototyping, synthetic testing and documentation throughout.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Problem -->
-<section class="case-section case-section-alt">
-  <div class="container">
-    <div class="eyebrow" style="margin-bottom:16px;">The problem</div>
-    <h2 style="font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(28px,3.5vw,44px); letter-spacing:-0.02em; margin-bottom:28px; max-width:700px;">A critical tool that was no longer fit for purpose</h2>
-    <div class="grid-2" style="gap:48px; align-items:start;">
-      <div>
-        <p class="case-body" style="margin-bottom:16px;">Range Analysts at Woolworths are responsible for making <strong>critical ranging decisions</strong> that determine product assortment across a 900+ store network — but the tools and processes supporting this work, most critically <strong>V10</strong>, were making it harder, not easier.</p>
-        <p class="case-body">V10 was fundamentally unscalable. Reviews took too long, a <strong>high barrier to entry</strong> limited who could run them, and critical pain points — <strong>manual data validation consuming the majority of setup time, poor error troubleshooting, a disjointed workflow and no effective way to communicate ranging rationale to Category Managers</strong> — created a significant bottleneck.</p>
-      </div>
-      <div style="border-left:3px solid var(--green); padding-left:28px;">
-        <p style="font-family:'Playfair Display',serif; font-size:clamp(18px,2.2vw,24px); font-style:italic; font-weight:300; color:var(--black); line-height:1.5;">How do we transform a tool that only experienced analysts could navigate into one that supports the full team — without compromising the depth that power users rely on?</p>
-      </div>
-    </div>
-    <div class="grid-2" style="gap:12px; margin-top:40px;">
-      <figure><img src="assets/images/rs-v10-google-sheet.png" alt="ART Google Sheet V10 — fragmented tabs" class="img-real"><figcaption class="img-caption">ART Google Sheet V10 — previous tool</figcaption></figure>
-      <figure><img src="assets/images/rs-art-web-app.png" alt="ART Web Application — new unified platform" class="img-real"><figcaption class="img-caption">ART Web Application — unified platform</figcaption></figure>
-    </div>
+<!-- ── PROBLEM ── -->
+<section class="cs-section alt">
+  <div class="content-wrap">
+    <span class="eyebrow">The problem</span>
+    <h2 class="section-title">A critical tool that was no longer fit for purpose</h2>
+    <p class="body-text">Range Analysts at Woolworths are responsible for making <strong>critical ranging decisions</strong> that determine product assortment across a 900+ store network — but the tools and processes supporting this work, most critically <strong>V10</strong>, were making it harder, not easier.</p>
+    <p class="body-text">V10 was fundamentally unscalable. Reviews took too long, a <strong>high barrier to entry</strong> limited who could run them, and critical pain points — <strong>manual data validation consuming the majority of setup time, poor error troubleshooting, a disjointed workflow</strong> and no effective way to <strong>compare runs or communicate ranging rationale</strong> to Category Managers — created a significant bottleneck.</p>
+    <figure class="img-gap">
+      <img src="assets/images/rs-v10-google-sheet.png" alt="ART Google Sheet V10 — previous tool" class="case-img">
+      <figcaption class="case-img-caption">ART Google Sheet V10 — previous tool</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- Solution -->
-<section class="case-section">
-  <div class="container">
-    <div class="eyebrow" style="margin-bottom:16px;">The solution</div>
-    <h2 style="font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(28px,3.5vw,44px); letter-spacing:-0.02em; margin-bottom:28px; max-width:700px;">A unified platform built around analyst needs</h2>
-    <div class="grid-2" style="gap:48px; align-items:start; margin-bottom:40px;">
-      <p class="case-body">A <strong>unified platform</strong> built around a hub-and-spoke navigation model — Run Summary as the central control point, replacing fragmented Google Sheets and Excel workflows.</p>
-      <p class="case-body"><strong>Automated data health validation</strong> reduced hours of manual setup to minutes. <strong>Guided workflows with progressive disclosure</strong> served both novice and expert analysts. <strong>Integrated run summaries and change tracking</strong> gave analysts a clear way to communicate ranging rationale to Category Managers for the first time.</p>
-    </div>
-    <figure><img src="assets/images/rs-solution-overview.png" alt="ART web application — Run Summary hub" class="img-real"><figcaption class="img-caption">ART web application — Run Summary hub</figcaption></figure>
+<!-- ── SOLUTION ── -->
+<section class="cs-section">
+  <div class="content-wrap">
+    <span class="eyebrow">The solution</span>
+    <h2 class="section-title">A unified platform built around analyst needs</h2>
+    <p class="body-text">The <strong>Assortment Recommender Tool (ART) web application</strong> was designed to transform how Range Analysts conduct range reviews, replacing fragmented Google Sheets with a <strong>unified platform</strong> built around a <strong>hub-and-spoke navigation model</strong> — Run Summary as the central control point.</p>
+    <p class="body-text"><strong>Automated data health validation</strong> reduced hours of manual setup to minutes. <strong>Guided workflows with progressive disclosure</strong> served both novice and expert analysts. <strong>Integrated run summaries and change tracking</strong> gave analysts a clear way to communicate ranging rationale to Category Managers for the first time.</p>
+    <figure class="img-gap">
+      <img src="assets/images/rs-solution-overview.png" alt="ART web application — solution overview" class="case-img">
+      <figcaption class="case-img-caption">ART web application — unified platform overview</figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- AI Process -->
-<section class="ai-process-section" style="border-bottom:1px solid #1a1a18;">
-  <div class="container">
-    <div class="ai-process-eyebrow">My approach</div>
-    <h2 class="ai-process-title">How AI shaped my UX process</h2>
-    <p class="ai-process-sub">A comparison of the conventional UX process against the AI-assisted approach applied on this project.</p>
+<!-- ── HOW I STRUCTURED THIS PROJECT ── -->
+<section class="cs-section alt">
+  <div class="content-wrap">
+    <span class="eyebrow">The process</span>
+    <h2 class="section-title">How I structured &amp; delivered this project</h2>
+    <figure>
+      <img src="assets/images/rs-ux-process-overview.png" alt="UX design process overview" class="case-img">
+      <figcaption class="case-img-caption">UX design process — end to end</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ── HOW AI SHAPED MY UX PROCESS ── -->
+<section class="ai-section">
+  <div class="content-wrap">
+    <span class="ai-eyebrow">My approach</span>
+    <h2 class="ai-title">How AI shaped my UX process</h2>
+    <p class="ai-sub">A comparison of the conventional UX process against the AI-assisted approach applied on this project.</p>
 
     <div class="flow-compare">
       <div>
@@ -833,7 +778,7 @@ body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
           <div class="flow-arrow">→</div>
           <div class="flow-step">Wireframing &amp; prototyping</div>
           <div class="flow-arrow">→</div>
-          <div class="flow-step">Testing &amp; design iteration</div>
+          <div class="flow-step">Testing &amp; iteration</div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">Handover</div>
         </div>
@@ -845,400 +790,330 @@ body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
         <div class="flow-steps">
           <div class="flow-step">Research &amp; interviews</div>
           <div class="flow-arrow">→</div>
-          <div class="flow-step highlight">AI synthesis</div>
+          <div class="flow-step on">AI synthesis</div>
           <div class="flow-arrow">→</div>
-          <div class="flow-step highlight">AI-assisted wireframing &amp; prototyping</div>
+          <div class="flow-step on">AI-assisted wireframing &amp; prototyping</div>
           <div class="flow-arrow">→</div>
-          <div class="flow-step highlight">Testing &amp; rapid iteration</div>
+          <div class="flow-step on">Testing &amp; rapid iteration</div>
           <div class="flow-arrow">→</div>
           <div class="flow-step">Handover</div>
         </div>
       </div>
     </div>
 
-    <div class="how-it-works">
-      <div class="how-it-works-label">The new way in practice</div>
-      <div class="how-bullets">
-        <div class="how-bullet"><span class="how-bullet-num">01</span><span>I used AI tools to accelerate key parts of the process — research synthesis, conceptual design, wireframing, prototyping and iteration — significantly reducing time on production tasks</span></div>
-        <div class="how-bullet"><span class="how-bullet-num">02</span><span>SMEs provided domain expertise and validated outputs at key stages throughout the project</span></div>
-        <div class="how-bullet"><span class="how-bullet-num">03</span><span>AI supported the execution while I led the strategy, design decisions and quality of the final output</span></div>
-      </div>
+    <span class="how-label">The new way in practice</span>
+    <div class="how-bullets">
+      <div class="how-bullet"><span class="how-num">01</span><span>I used AI tools to accelerate key parts of the process — research synthesis, conceptual design, wireframing, prototyping and iteration — significantly reducing time on production tasks</span></div>
+      <div class="how-bullet"><span class="how-num">02</span><span>SMEs provided domain expertise and validated outputs at key stages throughout the project</span></div>
+      <div class="how-bullet"><span class="how-num">03</span><span>AI supported the execution while I led the strategy, design decisions and quality of the final output</span></div>
     </div>
   </div>
 </section>
 
-<!-- Process Steps -->
-<section class="case-section">
-  <div class="container">
-    <div class="eyebrow" style="margin-bottom:12px;">The process</div>
-    <h2 style="font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(28px,3.5vw,44px); letter-spacing:-0.02em; margin-bottom:60px;">How I structured and delivered this project</h2>
+<!-- ══════════════════════════════
+     PROCESS STEPS
+══════════════════════════════ -->
+<section class="cs-section">
+  <div class="content-wrap">
 
     <!-- Step 01 -->
-    <div class="case-grid fade-up" style="margin-bottom:80px; padding-bottom:80px; border-bottom:1px solid var(--rule);">
-      <div class="case-sidebar">
-        <div class="case-sidebar-num">01 — Engagement</div>
-        <div class="case-sidebar-title">Existing tool analysis &amp; scope</div>
-        <div class="case-sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Timeframe</span>
-            <div class="timeframe-rows">
+    <div class="step fade-up">
+      <div class="step-sidebar">
+        <div class="step-num">01 — Engagement</div>
+        <div class="step-title">Existing tool analysis &amp; scope</div>
+        <div class="step-meta">
+          <div>
+            <span class="meta-row-label">Timeframe</span>
+            <div class="tf-rows">
               <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">1–2 weeks</span></div>
               <div class="tf-row"><span class="tf-label">AI-assisted</span><span class="tf-pill">3–5 days</span></div>
             </div>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Claude project</span>
-            <span class="sidebar-meta-value">Range and Space expert</span>
+          <div>
+            <span class="meta-row-label">Claude project</span>
+            <span class="meta-row-value">Range and Space expert</span>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Key AI process</span>
-            <span class="sidebar-meta-value">Knowledge capture, structuring observations, workflow mapping</span>
+          <div>
+            <span class="meta-row-label">Key AI process</span>
+            <span class="meta-row-value">Knowledge capture, structuring observations, workflow mapping</span>
           </div>
         </div>
       </div>
-      <div class="case-content">
-        <div class="insight-card">The starting point wasn't designing a new tool — it was understanding why V10 had become a bottleneck despite being business-critical.</div>
-        <p class="case-body">I mapped V10 and V11 across their capabilities, architecture and limitations — documenting the fragmented workflow spanning Google Sheets, BigQuery and external Excel files before any design work began.</p>
+      <div class="step-content">
+        <div class="insight">The starting point wasn't designing a new tool — it was understanding why V10 had become a bottleneck despite being business-critical.</div>
+        <p class="body-text">I mapped V10 and V11 across their capabilities, architecture and limitations — documenting the fragmented workflow spanning Google Sheets, BigQuery and external Excel files before any design work began.</p>
         <div>
           <span class="outcomes-label">Key outcomes</span>
-          <div class="outcomes-list">
+          <div class="outcomes">
             <div class="outcome-item"><strong>System architecture documented:</strong> Google Sheets with manual BigQuery integration, fragmented across 10+ spreadsheet tabs with external Excel files for comparison</div>
             <div class="outcome-item"><strong>Workflow baseline mapped:</strong> Reviews requiring 20–100+ runs across 7 workflow stages</div>
             <div class="outcome-item"><strong>Technical limitations identified:</strong> Google Sheets reaching capability limits, no integrated comparison tools, 200+ concurrent reviews requiring a scalable platform</div>
-            <div class="outcome-item"><strong>Information architecture defined:</strong> Unified web platform with hub-and-spoke navigation replacing fragmented workflows, supporting parallel V11 operation during transition</div>
           </div>
         </div>
-        <div class="ai-callout">
-          <div class="ai-callout-label">AI note</div>
-          <div class="ai-callout-text">AI tooling was introduced progressively — used initially for knowledge organisation and structuring observations. Deeper integration began from Discovery onwards.</div>
+        <div class="ai-note">
+          <div class="ai-note-label">AI note</div>
+          <div class="ai-note-text">AI tooling was introduced progressively — used initially for knowledge organisation and structuring observations. Deeper integration began from Discovery onwards.</div>
         </div>
         <div class="grid-2">
-          <figure><img src="assets/images/rs-v10-google-sheet.png" alt="ART Google Sheet V10" class="img-real"><figcaption class="img-caption">ART Google Sheet V10</figcaption></figure>
-          <figure><img src="assets/images/rs-roa-tool.png" alt="Range Outcome Analysis Tool (ROA)" class="img-real"><figcaption class="img-caption">Range Outcome Analysis Tool (ROA)</figcaption></figure>
+          <figure><img src="assets/images/rs-art-web-app.png" alt="ART web app" class="case-img"><figcaption class="case-img-caption">Assortment Recommender (AR)</figcaption></figure>
+          <figure><img src="assets/images/rs-roa-tool.png" alt="Range Outcome Analysis Tool" class="case-img"><figcaption class="case-img-caption">Range Outcome Analysis (ROA) Tool</figcaption></figure>
         </div>
       </div>
     </div>
 
     <!-- Step 02 -->
-    <div class="case-grid fade-up" style="margin-bottom:80px; padding-bottom:80px; border-bottom:1px solid var(--rule);">
-      <div class="case-sidebar">
-        <div class="case-sidebar-num">02 — Discover</div>
-        <div class="case-sidebar-title">Initial discovery</div>
-        <div class="case-sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Research</span>
-            <span class="sidebar-meta-value">15 discovery interviews (45–90 min each)</span>
+    <div class="step fade-up">
+      <div class="step-sidebar">
+        <div class="step-num">02 — Discover</div>
+        <div class="step-title">Initial discovery</div>
+        <div class="step-meta">
+          <div>
+            <span class="meta-row-label">Research</span>
+            <span class="meta-row-value">15 discovery interviews (45–90 min each)</span>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Timeframe</span>
-            <div class="timeframe-rows">
+          <div>
+            <span class="meta-row-label">Timeframe</span>
+            <div class="tf-rows">
               <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">2–3 weeks</span></div>
               <div class="tf-row"><span class="tf-label">AI-assisted</span><span class="tf-pill">~1 week</span></div>
             </div>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Key AI process</span>
-            <span class="sidebar-meta-value">Persona generation, Jobs-to-be-Done extraction, affinity mapping from transcripts</span>
+          <div>
+            <span class="meta-row-label">Key AI process</span>
+            <span class="meta-row-value">Persona generation, Jobs-to-be-Done extraction, affinity mapping</span>
           </div>
         </div>
       </div>
-      <div class="case-content">
-        <div class="insight-card">Discovery revealed the real problem wasn't ranging decisions — it was everything analysts had to do before they could make one.</div>
-        <p class="case-body">15 discovery interviews surfaced a consistent pattern: the pain wasn't in the ranging decisions themselves but in everything required to get there — manual validation, fragmented tooling and no clear way to communicate recommendations to Category Managers.</p>
+      <div class="step-content">
+        <div class="insight">Discovery revealed the real problem wasn't ranging decisions — it was everything analysts had to do before they could make one.</div>
+        <p class="body-text">15 discovery interviews surfaced a consistent pattern: the pain wasn't in the ranging decisions themselves but in everything required to get there — manual validation, fragmented tooling and no clear way to communicate recommendations to Category Managers.</p>
         <div>
           <span class="outcomes-label">Key outcomes</span>
-          <div class="outcomes-list">
-            <div class="outcome-item"><strong>Critical pain points identified:</strong> 50–70% setup time on manual validation, 2–3 hours creating comparisons, 3+ hours troubleshooting, and difficulty communicating the rationale behind range recommendations to Category Managers</div>
+          <div class="outcomes">
+            <div class="outcome-item"><strong>Critical pain points identified:</strong> 50–70% setup time on manual validation, 2–3 hours creating comparisons, difficulty communicating the rationale behind range recommendations</div>
             <div class="outcome-item"><strong>Jobs-to-be-done mapped:</strong> Configure with data confidence, evaluate scenarios efficiently, implement tactics with impact preview, communicate recommendations compellingly</div>
-            <div class="outcome-item"><strong>Two personas defined:</strong> Expert Range Analyst (8+ years, 15–20 reviews, 50+ tactics) and Novice Range Analyst (18 months, 8–12 reviews) — requiring progressive disclosure to serve both</div>
+            <div class="outcome-item"><strong>Two personas defined:</strong> Expert Range Analyst (8+ years, 15–20 reviews) and Novice Range Analyst (18 months, 8–12 reviews) — requiring progressive disclosure to serve both</div>
           </div>
         </div>
         <div class="grid-2">
-          <div>
-            <figure><img src="assets/images/rs-affinity-map.png" alt="Overview of problems and opportunities — affinity map" class="img-real"><figcaption class="img-caption">Overview of problems &amp; opportunities</figcaption></figure>
-          </div>
-          <div>
-            <figure><img src="assets/images/rs-persona.png" alt="Range Analyst persona" class="img-real"><figcaption class="img-caption">Range Analyst persona</figcaption></figure>
-          </div>
+          <figure><img src="assets/images/rs-affinity-map.png" alt="Overview of problems and opportunities" class="case-img"><figcaption class="case-img-caption">Overview of problems &amp; opportunities</figcaption></figure>
+          <figure><img src="assets/images/rs-persona.png" alt="Range Analyst persona" class="case-img"><figcaption class="case-img-caption">Persona</figcaption></figure>
         </div>
       </div>
     </div>
 
-    <!-- Step 03a -->
-    <div class="case-grid fade-up" style="margin-bottom:80px; padding-bottom:80px; border-bottom:1px solid var(--rule);">
-      <div class="case-sidebar">
-        <div class="case-sidebar-num">03 — Define</div>
-        <div class="case-sidebar-title">User journey mapping</div>
-        <div class="case-sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Timeframe</span>
-            <div class="timeframe-rows">
-              <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">~2–3 weeks</span></div>
+    <!-- Step 03 — Define -->
+    <div class="step fade-up">
+      <div class="step-sidebar">
+        <div class="step-num">03 — Define</div>
+        <div class="step-title">User journey mapping &amp; tool architecture</div>
+        <div class="step-meta">
+          <div>
+            <span class="meta-row-label">Timeframe</span>
+            <div class="tf-rows">
+              <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">2–3 weeks</span></div>
               <div class="tf-row"><span class="tf-label">AI-assisted</span><span class="tf-pill">2–3 days</span></div>
             </div>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Claude projects</span>
-            <span class="sidebar-meta-value">User Flow Generator, Customer/User Journey Map, Range &amp; Space workshop</span>
+          <div>
+            <span class="meta-row-label">Claude projects</span>
+            <span class="meta-row-value">User Flow Generator, Journey Map, Range &amp; Space workshop</span>
           </div>
         </div>
       </div>
-      <div class="case-content">
-        <div class="insight-card">A collaborative user journey mapping workshop confirmed that analysts don't work linearly — the navigation needed to reflect that.</div>
-        <p class="case-body">Research insights were translated into a concrete navigation structure through a collaborative journey mapping workshop with SMEs and stakeholders, validating workflow progression before any wireframing began.</p>
+      <div class="step-content">
+        <div class="insight">A collaborative user journey mapping workshop confirmed that analysts don't work linearly — the navigation needed to reflect that.</div>
+        <p class="body-text">Research insights were translated into a concrete navigation structure through a collaborative journey mapping workshop with SMEs and stakeholders — validating workflow progression before any wireframing began.</p>
         <div>
           <span class="outcomes-label">Key outcomes</span>
-          <div class="outcomes-list">
+          <div class="outcomes">
             <div class="outcome-item"><strong>Workshop validation:</strong> Navigation architecture and workflow progression confirmed with SMEs and stakeholders</div>
-            <div class="outcome-item"><strong>Tool structure &amp; site map defined:</strong> Run Summary as central control with collapsible navigation to Set up, Category data and Tactics</div>
-            <div class="outcome-item"><strong>Core workflow mapped:</strong> New Review → Initial setup → Run Summary hub → Category data/Tactics → Execute run → Publish</div>
+            <div class="outcome-item"><strong>Tool structure defined:</strong> Hub-and-spoke navigation model with Run Summary as central hub</div>
+            <div class="outcome-item"><strong>Core workflow mapped:</strong> New Review → Initial setup → Run Summary hub → Category data / Tactics → Execute run → Publish</div>
           </div>
         </div>
-        <div class="grid-2">
-          <figure><img src="assets/images/rs-journey-workshop.png" alt="User journey workshop" class="img-real"><figcaption class="img-caption">User journey workshop</figcaption></figure>
-          <figure><img src="assets/images/rs-site-map.png" alt="Refined site map" class="img-real"><figcaption class="img-caption">Refined site map</figcaption></figure>
+        <figure>
+          <img src="assets/images/rs-journey-workshop.png" alt="User journey workshop" class="case-img">
+          <figcaption class="case-img-caption">User journey workshop</figcaption>
+        </figure>
+        <div class="grid-2" style="margin-top:12px;">
+          <figure><img src="assets/images/rs-site-map.png" alt="Site map" class="case-img"><figcaption class="case-img-caption">Site map</figcaption></figure>
+          <figure><img src="assets/images/rs-lofi-analysis.png" alt="User flow" class="case-img"><figcaption class="case-img-caption">User flow</figcaption></figure>
         </div>
       </div>
     </div>
 
-    <!-- Step 03b -->
-    <div class="case-grid fade-up" style="margin-bottom:80px; padding-bottom:80px; border-bottom:1px solid var(--rule);">
-      <div class="case-sidebar">
-        <div class="case-sidebar-num">03 — Define</div>
-        <div class="case-sidebar-title">Tool architecture &amp; wireframing</div>
-        <div class="case-sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Timeframe</span>
-            <div class="timeframe-rows">
-              <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">~2–3 weeks</span></div>
+    <!-- Step 04 — Lo-fi -->
+    <div class="step fade-up">
+      <div class="step-sidebar">
+        <div class="step-num">04 — Define</div>
+        <div class="step-title">Lo-fi wireframing &amp; iteration</div>
+        <div class="step-meta">
+          <div>
+            <span class="meta-row-label">Timeframe</span>
+            <div class="tf-rows">
+              <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">2–3 weeks</span></div>
               <div class="tf-row"><span class="tf-label">AI-assisted</span><span class="tf-pill">2–3 days</span></div>
             </div>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Key tool</span>
-            <span class="sidebar-meta-value">Excalidraw, Figjam</span>
+          <div>
+            <span class="meta-row-label">Key tool</span>
+            <span class="meta-row-value">Excalidraw, FigJam</span>
           </div>
         </div>
       </div>
-      <div class="case-content">
-        <div class="insight-card">Establishing the tool architecture and site map at lo-fi stage meant avoiding costly structural changes once hi-fi design began.</div>
-        <p class="case-body">User journeys were translated into lo-fi wireframes across all five core sections, defining screen layouts, navigation patterns and content hierarchy ready for SME validation.</p>
+      <div class="step-content">
+        <div class="insight">Establishing the tool architecture and site map at lo-fi stage meant avoiding costly structural changes once hi-fi design began.</div>
+        <p class="body-text">User journeys were translated into lo-fi wireframes across all five core sections. Weekly SME reviews validated business rules — with a critical refinement confirming the need for clear distinction between 'errors' (blocking) and 'alerts' (advisory).</p>
         <div>
           <span class="outcomes-label">Key outcomes</span>
-          <div class="outcomes-list">
-            <div class="outcome-item"><strong>Tool architecture defined:</strong> Hub-and-spoke navigation model with Run Summary as central hub</div>
-            <div class="outcome-item"><strong>Core screens designed:</strong> Landing page (review tracking), Set up (staged validation), Run Summary (central hub), Category data (universe management), Tactics (constraints application)</div>
+          <div class="outcomes">
+            <div class="outcome-item"><strong>SME validation:</strong> Business rules and workflow completeness confirmed, iterations incorporating feedback on data validation logic and error categorisation</div>
             <div class="outcome-item"><strong>Progressive disclosure implemented:</strong> Default simplified views with "show more" revealing advanced options</div>
           </div>
         </div>
-        <div class="grid-2">
-          <figure><img src="assets/images/rs-lofi-analysis.png" alt="Analysis page wireframe" class="img-real"><figcaption class="img-caption">Analysis page — lo-fi wireframe</figcaption></figure>
-          <figure><img src="assets/images/rs-lofi-category-data.png" alt="Category data page wireframe" class="img-real"><figcaption class="img-caption">Category data — lo-fi wireframe</figcaption></figure>
+        <div class="ai-note">
+          <div class="ai-note-label">AI approach</div>
+          <div class="ai-note-text">Dedicated Claude projects per tool section managed context limits and enabled deep, section-specific knowledge input — significantly improving output quality across complex, information-dense sections.</div>
+        </div>
+        <figure>
+          <img src="assets/images/rs-lofi-category-data.png" alt="Lo-fi wireframes" class="case-img">
+          <figcaption class="case-img-caption">Lo-fi mocks of tool using Excalidraw</figcaption>
+        </figure>
+        <div class="grid-2" style="margin-top:12px;">
+          <figure><img src="assets/images/rs-lofi-runs-summary.png" alt="Lo-fi iteration" class="case-img"><figcaption class="case-img-caption">Lo / mid-fi iterations</figcaption></figure>
+          <figure><img src="assets/images/rs-lofi-tactics.png" alt="Lo-fi screen detail" class="case-img"><figcaption class="case-img-caption">Lo / mid-fi screen detail</figcaption></figure>
         </div>
       </div>
     </div>
 
-    <!-- Step 03c -->
-    <div class="case-grid fade-up" style="margin-bottom:80px; padding-bottom:80px; border-bottom:1px solid var(--rule);">
-      <div class="case-sidebar">
-        <div class="case-sidebar-num">03 — Define</div>
-        <div class="case-sidebar-title">Lo-fi iteration</div>
-        <div class="case-sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Timeframe</span>
-            <div class="timeframe-rows">
-              <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">~1 week</span></div>
-              <div class="tf-row"><span class="tf-label">AI-assisted</span><span class="tf-pill">1 hour</span></div>
-            </div>
-          </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Key AI process</span>
-            <span class="sidebar-meta-value">SME feedback consolidation, business rule validation, design iteration recommendations</span>
-          </div>
-        </div>
-      </div>
-      <div class="case-content">
-        <div class="insight-card">SME sessions revealed that how you surface errors matters as much as catching them.</div>
-        <p class="case-body">Weekly SME reviews validated business rules and refined the information architecture, while fortnightly check-ins with developers identified technical feasibility issues — all before any hi-fi investment.</p>
-        <div>
-          <span class="outcomes-label">Key outcomes</span>
-          <div class="outcomes-list">
-            <div class="outcome-item"><strong>SME validation &amp; design iteration:</strong> Business rules and workflow completeness validated, with iterations incorporating feedback on data validation logic and error categorisation</div>
-            <div class="outcome-item"><strong>Critical refinement:</strong> SMEs confirmed need for clear distinction between 'errors' (blocking) vs 'alerts' (advisory) — staged validation prevents overwhelming users</div>
-            <div class="outcome-item"><strong>Workflow logic validated:</strong> Hub-and-spoke navigation confirmed as matching non-linear analyst working patterns</div>
-          </div>
-        </div>
-        <div class="ai-callout">
-          <div class="ai-callout-label">AI approach</div>
-          <div class="ai-callout-text">Dedicated Claude projects per tool section managed context limits and enabled deep, section-specific knowledge input — significantly improving output quality across complex, information-dense sections.</div>
-        </div>
-        <div class="grid-3">
-          <figure><img src="assets/images/rs-lofi-category-data.png" alt="Category data lo-fi" class="img-real"><figcaption class="img-caption">Category data lo-fi</figcaption></figure>
-          <figure><img src="assets/images/rs-lofi-runs-summary.png" alt="Runs summary lo-fi" class="img-real"><figcaption class="img-caption">Runs summary lo-fi</figcaption></figure>
-          <figure><img src="assets/images/rs-lofi-tactics.png" alt="Tactics lo-fi" class="img-real"><figcaption class="img-caption">Tactics lo-fi</figcaption></figure>
-        </div>
-      </div>
-    </div>
-
-    <!-- Step 04a -->
-    <div class="case-grid fade-up" style="margin-bottom:80px; padding-bottom:80px; border-bottom:1px solid var(--rule);">
-      <div class="case-sidebar">
-        <div class="case-sidebar-num">04 — Design</div>
-        <div class="case-sidebar-title">Hi-fi iteration</div>
-        <div class="case-sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Timeframe</span>
-            <div class="timeframe-rows">
-              <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">~2–3 weeks</span></div>
+    <!-- Step 05 — Hi-fi -->
+    <div class="step fade-up">
+      <div class="step-sidebar">
+        <div class="step-num">05 — Design</div>
+        <div class="step-title">Hi-fi design &amp; iteration</div>
+        <div class="step-meta">
+          <div>
+            <span class="meta-row-label">Timeframe</span>
+            <div class="tf-rows">
+              <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">2–3 weeks</span></div>
               <div class="tf-row"><span class="tf-label">AI-assisted</span><span class="tf-pill">2–3 hours</span></div>
             </div>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Claude project</span>
-            <span class="sidebar-meta-value">QDS Studio</span>
+          <div>
+            <span class="meta-row-label">Claude project</span>
+            <span class="meta-row-value">QDS Studio</span>
           </div>
         </div>
       </div>
-      <div class="case-content">
-        <div class="insight-card">Fortnightly dev reviews meant design and engineering stayed aligned throughout — not just at handoff.</div>
-        <p class="case-body">Lo-fi wireframes were built into high-fidelity Figma prototypes across all five sections, applying accessibility standards and a consistent visual language throughout.</p>
+      <div class="step-content">
+        <div class="insight">Fortnightly dev reviews meant design and engineering stayed aligned throughout — not just at handoff.</div>
+        <p class="body-text">Lo-fi wireframes were built into high-fidelity Figma prototypes across all five sections, applying accessibility standards and a consistent visual language throughout.</p>
         <div>
           <span class="outcomes-label">Key outcomes</span>
-          <div class="outcomes-list">
-            <div class="outcome-item"><strong>Interactive prototypes:</strong> Hi-fidelity Figma prototypes with consistent visual language, trialling Claude for HTML prototype generation alongside Figma</div>
-            <div class="outcome-item"><strong>Accessibility implemented:</strong> WCAG 2.1 Level AA compliant design patterns applied throughout all screens</div>
+          <div class="outcomes">
+            <div class="outcome-item"><strong>Interactive prototypes:</strong> Hi-fidelity Figma prototypes with consistent visual language across all core sections</div>
+            <div class="outcome-item"><strong>Accessibility implemented:</strong> WCAG 2.1 Level AA compliant design patterns applied throughout</div>
           </div>
         </div>
-        <div class="grid-2">
-          <figure><img src="assets/images/rs-hifi-landing-runs.png" alt="Landing page and Runs summary hi-fi" class="img-real"><figcaption class="img-caption">Landing page &amp; Runs summary</figcaption></figure>
-          <figure><img src="assets/images/rs-hifi-category-data.png" alt="Category data site and group view" class="img-real"><figcaption class="img-caption">Category data — site &amp; group view</figcaption></figure>
-        </div>
-        <div class="grid-2">
-          <figure><img src="assets/images/rs-hifi-tactics-guided.png" alt="Tactics guided workflow" class="img-real"><figcaption class="img-caption">Tactics — guided workflow</figcaption></figure>
-          <figure><img src="assets/images/rs-hifi-tactics-experienced.png" alt="Tactic selection experienced" class="img-real"><figcaption class="img-caption">Tactic selection — experienced user</figcaption></figure>
+        <figure>
+          <img src="assets/images/rs-hifi-landing-runs.png" alt="Hi-fi designs" class="case-img">
+          <figcaption class="case-img-caption">Hi-fi iterations of sections of the tool</figcaption>
+        </figure>
+        <div class="grid-2" style="margin-top:12px;">
+          <figure><img src="assets/images/rs-hifi-category-data.png" alt="Hi-fi category data" class="case-img"><figcaption class="case-img-caption">Category data view</figcaption></figure>
+          <figure><img src="assets/images/rs-hifi-tactics-guided.png" alt="Hi-fi tactics" class="case-img"><figcaption class="case-img-caption">Tactics view</figcaption></figure>
         </div>
       </div>
     </div>
 
-    <!-- Step 04b -->
-    <div class="case-grid fade-up" style="margin-bottom:80px; padding-bottom:80px; border-bottom:1px solid var(--rule);">
-      <div class="case-sidebar">
-        <div class="case-sidebar-num">04 — Design</div>
-        <div class="case-sidebar-title">User testing</div>
-        <div class="case-sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Sessions</span>
-            <span class="sidebar-meta-value">25+ across Setup, Universe management and Tactics</span>
+    <!-- Step 06 — User Testing -->
+    <div class="step fade-up">
+      <div class="step-sidebar">
+        <div class="step-num">06 — Design</div>
+        <div class="step-title">User testing</div>
+        <div class="step-meta">
+          <div>
+            <span class="meta-row-label">Sessions</span>
+            <span class="meta-row-value">25+ across Setup, Universe management and Tactics</span>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Timeframe</span>
-            <div class="timeframe-rows">
-              <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">~2–3 weeks</span></div>
+          <div>
+            <span class="meta-row-label">Timeframe</span>
+            <div class="tf-rows">
+              <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">2–3 weeks</span></div>
               <div class="tf-row"><span class="tf-label">AI-assisted</span><span class="tf-pill">1 week</span></div>
             </div>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">AI platform</span>
-            <span class="sidebar-meta-value">Otter</span>
+          <div>
+            <span class="meta-row-label">AI platform</span>
+            <span class="meta-row-value">Otter</span>
           </div>
         </div>
       </div>
-      <div class="case-content">
-        <div class="insight-card">User testing surfaced a clear behavioural split — novice analysts needed guidance through complexity, while experts needed it out of their way. Progressive disclosure served both.</div>
-        <p class="case-body">25+ sessions across the core screens revealed where analysts succeeded, where they hesitated and where the design needed to change.</p>
-        <div>
-          <span class="outcomes-label">Key outcomes</span>
-          <div class="outcomes-list">
-            <div class="outcome-item"><strong>Setup flow (8 sessions):</strong> Initial confusion with staged validation — users expected all-at-once errors but responded with relief once explained. 70% reduction in troubleshooting time</div>
-            <div class="outcome-item"><strong>Universe management (6 sessions):</strong> Bulk selection not immediately obvious — once discovered, users immediately recognised it as a significant time saver</div>
-            <div class="outcome-item"><strong>Tactics workflow (6 sessions):</strong> Behavioural split confirmed — novice users gravitating to guided workflow, experts immediately seeking direct access</div>
-          </div>
-        </div>
+      <div class="step-content">
+        <div class="insight">User testing surfaced a clear behavioural split — novice analysts needed guidance through complexity, while experts needed it out of their way. Progressive disclosure served both.</div>
+        <p class="body-text">25+ sessions across the core screens revealed where analysts succeeded, where they hesitated and where the design needed to change.</p>
         <div class="user-quote">
           <div class="user-quote-text">"Just scanning down, I can see which runs solved high-priority issues. It's going to save me so much time."</div>
-          <div class="user-quote-cite">Range Analyst, user testing session</div>
+          <div class="user-quote-source">Range Analyst, user testing session</div>
         </div>
-        <div class="user-quote" style="margin-top:12px;">
-          <div class="user-quote-text">"The flow makes sense, it's very intuitive. I feel like somebody newer would understand it… we're trying to cater to different needs."</div>
-          <div class="user-quote-cite">Range Analyst, user testing session</div>
-        </div>
-        <div class="img-placeholder medium" style="margin-top:0;">
-          <div class="img-placeholder-label">User testing session</div>
-          <div class="img-placeholder-desc">Remote testing via Figma prototype</div>
+        <div class="grid-2">
+          <figure><img src="assets/images/rs-user-testing.png" alt="User testing session using Figma prototypes" class="case-img"><figcaption class="case-img-caption">User testing using Figma prototypes</figcaption></figure>
+          <figure><img src="assets/images/rs-web-app-demo.png" alt="User testing using HTML prototypes" class="case-img"><figcaption class="case-img-caption">User testing using HTML prototypes</figcaption></figure>
         </div>
       </div>
     </div>
 
-    <!-- Step 04c -->
-    <div class="case-grid fade-up" style="margin-bottom:80px; padding-bottom:80px; border-bottom:1px solid var(--rule);">
-      <div class="case-sidebar">
-        <div class="case-sidebar-num">04 — Design</div>
-        <div class="case-sidebar-title">Hi-fi iteration &amp; refinement</div>
-        <div class="case-sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Timeframe</span>
-            <div class="timeframe-rows">
+    <!-- Step 07 — Refinement -->
+    <div class="step fade-up">
+      <div class="step-sidebar">
+        <div class="step-num">07 — Design</div>
+        <div class="step-title">Hi-fi iteration &amp; refinement</div>
+        <div class="step-meta">
+          <div>
+            <span class="meta-row-label">Timeframe</span>
+            <div class="tf-rows">
               <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">~2 months</span></div>
               <div class="tf-row"><span class="tf-label">AI-assisted</span><span class="tf-pill">1.5 days</span></div>
             </div>
           </div>
         </div>
       </div>
-      <div class="case-content">
-        <div class="insight-card">Every refinement had to balance what users asked for against what the design system could sustain.</div>
-        <p class="case-body">User feedback was incorporated across all five sections while maintaining design system consistency throughout.</p>
-        <div>
-          <span class="outcomes-label">Validation outcomes</span>
-          <div class="outcomes-list">
-            <div class="outcome-item"><strong>Run Summary confirmed:</strong> "Just scanning down, I can see which runs solved high-priority issues. It's going to save me so much time." — range analyst</div>
-            <div class="outcome-item"><strong>Tactics workflow confirmed:</strong> "The flow makes sense, it's very intuitive… we're trying to cater to different needs." — range analyst</div>
-            <div class="outcome-item"><strong>Performance validated:</strong> Table performance, bulk operations and responsive behaviour confirmed under realistic load</div>
-            <div class="outcome-item"><strong>Power user refinements:</strong> Advanced sorting and filtering capabilities added to support complex, multi-criteria analysis</div>
-          </div>
-        </div>
+      <div class="step-content">
+        <div class="insight">Every refinement had to balance what users asked for against what the design system could sustain.</div>
+        <p class="body-text">User feedback was incorporated across all five sections while maintaining design system consistency throughout. Power user refinements added advanced sorting and filtering capabilities for complex, multi-criteria analysis.</p>
         <div class="grid-2">
-          <figure><img src="assets/images/rs-refined-landing-runs.png" alt="Landing page and Runs summary refined" class="img-real"><figcaption class="img-caption">Landing page &amp; Runs summary — refined</figcaption></figure>
-          <figure><img src="assets/images/rs-refined-category-article.png" alt="Category data article and space allocation" class="img-real"><figcaption class="img-caption">Category data — article &amp; space allocation</figcaption></figure>
-        </div>
-        <div class="grid-2">
-          <figure><img src="assets/images/rs-hifi-tactics-experienced.png" alt="Tactic selection experienced" class="img-real"><figcaption class="img-caption">Tactic selection — experienced user</figcaption></figure>
-          <figure><img src="assets/images/rs-hifi-tactics-guided.png" alt="Tactic selection guided" class="img-real"><figcaption class="img-caption">Tactic selection — guided</figcaption></figure>
+          <figure><img src="assets/images/rs-refined-landing-runs.png" alt="Refined hi-fi" class="case-img"><figcaption class="case-img-caption">Hi-fi iteration &amp; refinement</figcaption></figure>
+          <figure><img src="assets/images/rs-refined-category-article.png" alt="Refined category view" class="case-img"><figcaption class="case-img-caption">Refined category article view</figcaption></figure>
         </div>
       </div>
     </div>
 
-    <!-- Step 05 -->
-    <div class="case-grid fade-up">
-      <div class="case-sidebar">
-        <div class="case-sidebar-num">05 — Deliver</div>
-        <div class="case-sidebar-title">Final deliverable &amp; handoff</div>
-        <div class="case-sidebar-meta">
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Timeframe</span>
-            <div class="timeframe-rows">
+    <!-- Step 08 — Deliver -->
+    <div class="step fade-up">
+      <div class="step-sidebar">
+        <div class="step-num">08 — Deliver</div>
+        <div class="step-title">Final deliverable &amp; handoff</div>
+        <div class="step-meta">
+          <div>
+            <span class="meta-row-label">Timeframe</span>
+            <div class="tf-rows">
               <div class="tf-row"><span class="tf-label">Typical</span><span class="tf-pill">~1 month</span></div>
               <div class="tf-row"><span class="tf-label">AI-assisted</span><span class="tf-pill">2 days</span></div>
             </div>
           </div>
-          <div class="sidebar-meta-row">
-            <span class="sidebar-meta-label">Tools</span>
-            <span class="sidebar-meta-value">Figma Dev Mode, QDS Studio</span>
+          <div>
+            <span class="meta-row-label">Tools</span>
+            <span class="meta-row-value">Figma Dev Mode, QDS Studio</span>
           </div>
         </div>
       </div>
-      <div class="case-content">
-        <div class="insight-card">Close collaboration with the engineering team — from fortnightly reviews through to UAT — was just as important as the specifications themselves.</div>
-        <p class="case-body">Comprehensive specifications were delivered across all five sections — covering layout, interaction behaviours, edge cases and error states.</p>
-        <div>
-          <span class="outcomes-label">Key outcomes</span>
-          <div class="outcomes-list">
-            <div class="outcome-item"><strong>Production specifications delivered:</strong> Figma prototypes and comprehensive handoff documentation across all five MVP workflows, with a dedicated delivery file for screen specifications supported by Figma Dev Mode</div>
-            <div class="outcome-item"><strong>UAT sessions conducted:</strong> Build limitations identified and resolved before final handoff — ensuring designs translated accurately into the build without last-minute rework</div>
-          </div>
-        </div>
+      <div class="step-content">
+        <div class="insight">Close collaboration with the engineering team — from fortnightly reviews through to UAT — was just as important as the specifications themselves.</div>
+        <p class="body-text">Comprehensive specifications were delivered across all five sections — covering layout, interaction behaviours, edge cases and error states. UAT sessions identified and resolved build limitations before final handoff.</p>
         <div class="grid-2">
-          <figure><img src="assets/images/rs-delivery-specs.png" alt="Screen specs delivery file" class="img-real"><figcaption class="img-caption">Screen specifications — Figma Dev Mode</figcaption></figure>
-          <figure><img src="assets/images/rs-web-app-demo.png" alt="Demo of web app designs" class="img-real"><figcaption class="img-caption">Demo of web app designs</figcaption></figure>
+          <figure><img src="assets/images/rs-delivery-specs.png" alt="Screen specs delivery file" class="case-img"><figcaption class="case-img-caption">Screen specs of the category data pages in delivery file</figcaption></figure>
+          <figure><img src="assets/images/rs-web-app-demo.png" alt="Demo of web app designs" class="case-img"><figcaption class="case-img-caption">Demo of the web app designs</figcaption></figure>
         </div>
       </div>
     </div>
@@ -1246,113 +1121,112 @@ body { font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
   </div>
 </section>
 
-<!-- Prototype CTA -->
-<section class="case-section" style="padding:48px 0; background:var(--card);">
-  <div class="container">
-    <div class="prototype-block">
-      <div class="prototype-text">
-        <h3>View the end-to-end prototype</h3>
+<!-- ── PROTOTYPE CTA ── -->
+<section class="cs-section alt" style="padding:48px 0;">
+  <div class="content-wrap">
+    <div class="proto-block">
+      <div>
+        <h3>View the final end-to-end prototype</h3>
         <p>Full interactive Figma prototype covering all core analyst workflows</p>
       </div>
-      <a href="https://www.figma.com/proto/0Zm8EDdIg90ZDHoEobbTGx/Range---Space---E2E-prototype?page-id=0%3A1&node-id=1-52004&viewport=1161%2C571%2C0.1&t=A13jN5Z81Xbbowrv-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A52004" target="_blank" class="prototype-link">Open in Figma →</a>
+      <a href="https://www.figma.com/proto/0Zm8EDdIg90ZDHoEobbTGx/Range---Space---E2E-prototype?page-id=0%3A1&node-id=1-52004&viewport=1161%2C571%2C0.1&t=A13jN5Z81Xbbowrv-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1%3A52004" target="_blank" class="proto-link">Open in Figma →</a>
     </div>
   </div>
 </section>
 
-<!-- Strategic Impact -->
-<section class="case-section case-section-alt">
-  <div class="container">
-    <div class="eyebrow" style="margin-bottom:12px;">Strategic impact</div>
-    <h2 style="font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(28px,3.5vw,44px); letter-spacing:-0.02em; margin-bottom:8px;">Outcomes &amp; delivery</h2>
-
-    <div class="outcomes-grid">
+<!-- ── STRATEGIC IMPACT ── -->
+<section class="cs-section">
+  <div class="content-wrap">
+    <span class="eyebrow">Strategic impact</span>
+    <h2 class="section-title">Outcomes &amp; delivery</h2>
+    <figure class="img-gap">
+      <img src="assets/images/rs-strategic-impact.png" alt="Strategic impact, outcomes and delivery" class="case-img">
+      <figcaption class="case-img-caption">Strategic impact, outcomes and delivery</figcaption>
+    </figure>
+    <div class="outcomes-grid" style="margin-top:32px;">
       <div class="outcomes-card">
         <div class="outcomes-card-title">Immediate deliverables</div>
-        <div class="outcomes-list-2">
-          <div class="outcomes-list-item"><strong>Research artefacts</strong>15 discovery interviews, 25+ usability testing sessions, 4 collaborative workshops</div>
-          <div class="outcomes-list-item"><strong>Validated personas</strong>Expert and novice Range Analyst profiles grounded in behavioural observations</div>
-          <div class="outcomes-list-item"><strong>Hi-fi prototypes</strong>5 core sections with comprehensive task workflows</div>
-          <div class="outcomes-list-item"><strong>Production specifications</strong>Layout, behaviours, edge cases and error states across all workflows</div>
+        <div class="outcomes-card-list">
+          <div class="outcomes-card-item"><strong>Research artefacts</strong>15 discovery interviews, 25+ usability testing sessions, 4 collaborative workshops</div>
+          <div class="outcomes-card-item"><strong>Validated personas</strong>Expert and novice Range Analyst profiles grounded in behavioural observations</div>
+          <div class="outcomes-card-item"><strong>Hi-fi prototypes</strong>5 core sections with comprehensive task workflows</div>
         </div>
       </div>
       <div class="outcomes-card">
-        <div class="outcomes-card-title">Process innovation value</div>
-        <div class="outcomes-list-2">
-          <div class="outcomes-list-item"><strong>Evidence-based prioritisation</strong>Research backed confident pushback on partial release, protecting UX quality</div>
-          <div class="outcomes-list-item"><strong>Validate before building</strong>25+ testing sessions catching design issues before development investment</div>
-          <div class="outcomes-list-item"><strong>AI-accelerated delivery</strong>Claude transformed research synthesis, wireframing and prototyping — significantly reducing delivery time</div>
-          <div class="outcomes-list-item"><strong>Progressive disclosure</strong>Applied throughout to serve both novice and expert analysts</div>
+        <div class="outcomes-card-title">Process innovation</div>
+        <div class="outcomes-card-list">
+          <div class="outcomes-card-item"><strong>Evidence-based prioritisation</strong>Research backed confident pushback on partial release, protecting UX quality</div>
+          <div class="outcomes-card-item"><strong>Validate before building</strong>25+ testing sessions catching design issues before development investment</div>
+          <div class="outcomes-card-item"><strong>AI-accelerated delivery</strong>Claude transformed research synthesis, wireframing and prototyping timelines</div>
         </div>
       </div>
       <div class="outcomes-card">
         <div class="outcomes-card-title">Next steps</div>
-        <div class="outcomes-list-2">
-          <div class="outcomes-list-item" style="color:#555; font-size:13px; line-height:1.7;">Development was well underway when paused — back-end infrastructure largely in place, close to a fully functional MVP.</div>
-          <div class="outcomes-list-item" style="color:#555; font-size:13px; line-height:1.7; margin-top:8px;">The project stands as a strong foundation, ready to resume with minimal ramp-up.</div>
+        <div class="outcomes-card-list">
+          <div class="outcomes-card-item" style="color:#555; font-size:13px; line-height:1.7;">Development was well underway when paused — back-end infrastructure largely in place, close to a fully functional MVP. The project stands as a strong foundation, ready to resume.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Key Learnings -->
-<section class="case-section">
-  <div class="container">
-    <div class="eyebrow" style="margin-bottom:12px;">Reflection</div>
-    <h2 style="font-family:'Playfair Display',serif; font-weight:400; font-size:clamp(28px,3.5vw,44px); letter-spacing:-0.02em; margin-bottom:8px;">Key learnings</h2>
-
-    <div class="learnings-grid">
+<!-- ── KEY LEARNINGS ── -->
+<section class="cs-section alt">
+  <div class="content-wrap">
+    <span class="eyebrow">Reflection</span>
+    <h2 class="section-title">Key learnings</h2>
+    <figure class="img-gap">
+      <img src="assets/images/rs-key-learnings.png" alt="Key learnings" class="case-img">
+      <figcaption class="case-img-caption">Key learnings</figcaption>
+    </figure>
+    <div class="learnings-grid" style="margin-top:32px;">
       <div class="learning-col">
         <h3>Critical success factors</h3>
         <div class="learning-items">
           <div class="learning-item"><strong>Validate before building</strong>25+ testing sessions caught design issues before development. The insight "I'm not going to analyse my run unless I've fixed the problems" validated key prioritisation decisions.</div>
           <div class="learning-item"><strong>Evidence-based prioritisation</strong>Research-backed pushback ensured first release included a complete workflow, not just partial capabilities.</div>
-          <div class="learning-item"><strong>Solved V10's biggest pain points</strong>Unified interface replacing 10+ fragmented tabs, automated pre-run validation and integrated run comparison tools.</div>
         </div>
       </div>
       <div class="learning-col">
         <h3>Primary challenges</h3>
         <div class="learning-items">
-          <div class="learning-item"><strong>Stakeholder alignment and partial release pressure</strong>Competing priorities required continuous evidence-based pushback — balancing business urgency against releasing an incomplete experience.</div>
+          <div class="learning-item"><strong>Stakeholder alignment</strong>Competing priorities required continuous evidence-based pushback — balancing business urgency against releasing an incomplete experience.</div>
           <div class="learning-item"><strong>Rapidly evolving AI landscape</strong>AI capabilities shifted mid-project, requiring continuous recalibration of tools and processes throughout delivery.</div>
         </div>
       </div>
       <div class="learning-col">
-        <h3>What would be done differently</h3>
+        <h3>What I'd do differently</h3>
         <div class="learning-items">
           <div class="learning-item"><strong>Better cross-team communication</strong>Priority changes by different team members caused misalignment — clearer protocols between SMEs, developers and stakeholders would have helped.</div>
-          <div class="learning-item"><strong>Dedicated product manager</strong>Absence of a PM created gaps in priority-setting and decision ownership.</div>
-          <div class="learning-item"><strong>Earlier AI integration</strong>Earlier adoption of synthetic testing and AI-assisted validation would have accelerated iteration cycles.</div>
+          <div class="learning-item"><strong>Earlier AI integration</strong>Earlier adoption of synthetic testing and AI-assisted validation would have accelerated iteration cycles further.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Case footer nav -->
-<div class="case-footer-nav">
-  <div class="container">
+<!-- ── FOOTER NAV ── -->
+<div class="case-footer">
+  <div class="content-wrap">
     <div class="case-footer-inner">
-      <a href="index.html" class="case-footer-back">← Back to all work</a>
-      <div class="case-footer-next">
-        <span class="case-footer-next-label">Next project</span>
-        <a href="next-gen-slotter.html" class="case-footer-next-title">Next Gen Slotter →</a>
+      <a href="index.html" class="footer-back">← Back to all work</a>
+      <div class="footer-next">
+        <span class="footer-next-label">Next project</span>
+        <a href="next-gen-slotter.html" class="footer-next-link">Next Gen Slotter →</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Footer -->
-<footer class="site-footer" style="background:var(--black); padding:24px 56px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08);">
+<footer style="background:#111110; padding:24px 48px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08);">
   <a href="index.html" style="font-family:'Playfair Display',serif; font-size:15px; color:rgba(255,255,255,0.3); text-decoration:none;">Michelle Kim</a>
   <span style="font-size:11px; color:rgba(255,255,255,0.2); letter-spacing:0.04em;">© 2025 · Sydney, AU</span>
 </footer>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
-
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 

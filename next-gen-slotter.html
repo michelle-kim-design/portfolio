@@ -9,6 +9,20 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 
+/* ── CONTENT WIDTH: all page content constrained to this ── */
+.content-wrap,
+.case-hero-content {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
 /* ── CASE HERO ── */
 .case-hero {
   padding-top: 60px;
@@ -31,8 +45,8 @@
 .case-hero-content {
   position: relative;
   z-index: 2;
-  padding: 80px 56px;
-  max-width: 900px;
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 
 .case-hero-back {
@@ -99,9 +113,16 @@
 .case-meta-value a { color: var(--green-mid); text-decoration: none; }
 
 /* ── SHARED CASE STYLES ── */
-.case-section { padding: 80px 0; border-bottom: 1px solid var(--rule); }
+.case-section { padding: 80px 32px; border-bottom: 1px solid var(--rule); max-width: 860px; margin-left: auto; margin-right: auto; }
 .case-section:last-of-type { border-bottom: none; }
 .case-section-alt { background: var(--card); }
+
+.case-section .content-wrap {
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 .eyebrow {
   font-size: 10px;
@@ -155,6 +176,7 @@
 
 .img-real { width: 100%; border-radius: 4px; border: 1px solid var(--rule); display: block; }
 .img-caption { font-size: 11px; color: var(--mid); margin-top: 8px; text-align: center; font-style: italic; }
+figure { margin: 0; padding: 0; }
 
 .insight-card {
   background: var(--green-light);
@@ -266,7 +288,7 @@
 
 @media (max-width: 900px) {
   .case-hero-content { padding: 60px 24px; }
-  .grid-2, .grid-img-2, .grid-img-3 { grid-template-columns: 1fr; }
+    .grid-2, .grid-img-2, .grid-img-3 { grid-template-columns: 1fr; }
   .case-footer-inner { flex-direction: column; align-items: flex-start; gap: 24px; }
   .case-footer-next { text-align: left; }
 }
@@ -314,7 +336,7 @@
 
 <!-- Overview -->
 <section class="case-section">
-  <div class="container">
+  <div class="content-wrap">
     <div class="grid-2" style="gap:64px; align-items:start;">
       <div>
         <div class="eyebrow" style="margin-bottom:16px;">About this project</div>
@@ -331,9 +353,9 @@
 
 <!-- Problem -->
 <section class="case-section case-section-alt">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">The problem</div>
-    <h2 class="case-heading" style="margin-bottom:28px; max-width:700px;">Admin burden was preventing better decisions</h2>
+    <h2 class="case-heading" style="margin-bottom:28px;">Admin burden was preventing better decisions</h2>
     <div class="grid-2" style="gap:48px; align-items:start;">
       <p class="case-body">Woolworths' ACMs and CMs often struggled to efficiently negotiate the best promotional plan with suppliers due to their <strong>lack of time</strong> and <strong>flaws in existing tools and processes</strong>. Copious time spent on admin — rather than on making the right decisions — was creating significant lost revenue and profit opportunities.</p>
       <div style="border-left:3px solid var(--green); padding-left:28px;">
@@ -345,10 +367,10 @@
 
 <!-- Research -->
 <section class="case-section">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">Discovery</div>
     <h2 class="case-heading" style="margin-bottom:28px;">Understanding the user</h2>
-    <p class="case-body" style="max-width:700px; margin-bottom:40px;">Through user interviews with ACMs and CMs, I gathered themes and highlighted them in an affinity map — clearly defining the main users, their current workflow, pain points and opportunities.</p>
+    <p class="case-body" style="margin-bottom:40px;">Through user interviews with ACMs and CMs, I gathered themes and highlighted them in an affinity map — clearly defining the main users, their current workflow, pain points and opportunities.</p>
 
     <div class="insight-card" style="margin-bottom:32px;">Needs and pain points of ACMs and CMs stemmed from two common problems: admin burden and lack of time.</div>
 
@@ -359,13 +381,13 @@
 
     <div class="eyebrow" style="margin-bottom:16px; margin-top:48px;">Personas</div>
     <h2 class="case-heading" style="margin-bottom:20px;">ACM &amp; CM</h2>
-    <p class="case-body" style="max-width:700px; margin-bottom:32px;">The initial focus users that benefit most from this platform are <strong>Assistant Category Managers (ACMs)</strong> — who spend the most time negotiating deal sheet agreements and planning promotions with suppliers. <strong>Category Managers (CMs)</strong> are also involved at a higher level as the point of escalation between ACM and supplier negotiations.</p>
+    <p class="case-body" style="margin-bottom:32px;">The initial focus users that benefit most from this platform are <strong>Assistant Category Managers (ACMs)</strong> — who spend the most time negotiating deal sheet agreements and planning promotions with suppliers. <strong>Category Managers (CMs)</strong> are also involved at a higher level as the point of escalation between ACM and supplier negotiations.</p>
     <figure><img src="assets/images/ngs-personas.png" alt="ACM and CM personas" class="img-real"><figcaption class="img-caption">ACM &amp; CM personas</figcaption></figure>
 
     <div style="margin-top:48px;">
       <div class="eyebrow" style="margin-bottom:16px;">Journey map</div>
       <h2 class="case-heading" style="margin-bottom:20px;">ACM-centric journey map</h2>
-      <p class="case-body" style="max-width:700px; margin-bottom:32px;">ACMs' most critical pain points lie during the slotting and planning stage due to the admin burden and complexity of existing tools, and significant manual overheads required to confirm and amend deals.</p>
+      <p class="case-body" style="margin-bottom:32px;">ACMs' most critical pain points lie during the slotting and planning stage due to the admin burden and complexity of existing tools, and significant manual overheads required to confirm and amend deals.</p>
       <figure><img src="assets/images/ngs-journey-map.png" alt="ACM centric journey map" class="img-real"><figcaption class="img-caption">ACM-centric journey map</figcaption></figure>
     </div>
   </div>
@@ -373,10 +395,10 @@
 
 <!-- Solution -->
 <section class="case-section case-section-alt">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">The solution</div>
     <h2 class="case-heading" style="margin-bottom:28px;">A platform built around two core needs</h2>
-    <p class="case-body" style="max-width:700px; margin-bottom:40px;">The solution comprises two major components working together as one unified platform:</p>
+    <p class="case-body" style="margin-bottom:40px;">The solution comprises two major components working together as one unified platform:</p>
     <div class="grid-2" style="gap:32px; margin-bottom:40px;">
       <div style="background:var(--white); border:1px solid var(--rule); border-radius:4px; padding:28px;">
         <div class="eyebrow" style="margin-bottom:12px;">01</div>
@@ -389,16 +411,16 @@
         <p class="case-body" style="font-size:13px;">Displays essential promotion information at a high level, with detailed data gathered from various tools for informed decision-making.</p>
       </div>
     </div>
-    <figure><img src="assets/images/ngs-solution-overview.png" alt="Solution overview — deal sheet and calendar" class="img-real"><figcaption class="img-caption">Solution overview — deal sheet &amp; calendar</figcaption></figure>
+    <figure style="margin:0;"><img src="assets/images/ngs-solution-overview.png" alt="Solution overview — deal sheet and calendar" class="img-real"><figcaption class="img-caption">Solution overview — deal sheet &amp; calendar</figcaption></figure>
   </div>
 </section>
 
 <!-- Design process -->
 <section class="case-section">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">Design process</div>
     <h2 class="case-heading" style="margin-bottom:28px;">From ideation to final design</h2>
-    <p class="case-body" style="max-width:700px; margin-bottom:40px;">After reviewing user flows and use cases, the tool was structured around the deal sheet and calendar. Lo-fi wireframes were tested with users and iterated multiple times based on feedback.</p>
+    <p class="case-body" style="margin-bottom:40px;">After reviewing user flows and use cases, the tool was structured around the deal sheet and calendar. Lo-fi wireframes were tested with users and iterated multiple times based on feedback.</p>
 
     <div class="grid-img-2" style="margin-bottom:40px;">
       <figure><img src="assets/images/ngs-lofi-deal-sheet.png" alt="Lo-fi wireframe — deal sheet" class="img-real"><figcaption class="img-caption">Lo-fi — deal sheet</figcaption></figure>
@@ -412,21 +434,21 @@
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">01</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Broadening view from supplier to category level</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Based on user feedback, ACMs preferred to view different suppliers' products in one group to see clashing and substitutable products. Expanding the view enabled custom views drilling down to a particular assortment or zooming out to a whole category view.</p>
+        <p class="case-body" style="margin-bottom:20px;">Based on user feedback, ACMs preferred to view different suppliers' products in one group to see clashing and substitutable products. Expanding the view enabled custom views drilling down to a particular assortment or zooming out to a whole category view.</p>
         <figure><img src="assets/images/ngs-global-filter.png" alt="Global filter expanded view" class="img-real"><figcaption class="img-caption">Global filter — expanded view</figcaption></figure>
       </div>
 
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">02</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Moving insights to a side panel &amp; adding recommendations</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">The insights feature was moved from the main page to a side panel to free screen space. A recommendations tab was added to help users decide what actions to take from the insights.</p>
+        <p class="case-body" style="margin-bottom:20px;">The insights feature was moved from the main page to a side panel to free screen space. A recommendations tab was added to help users decide what actions to take from the insights.</p>
         <figure><img src="assets/images/ngs-insights-panel.png" alt="Insights panel and recommendations" class="img-real"><figcaption class="img-caption">Insights panel &amp; recommendations</figcaption></figure>
       </div>
 
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">03</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Catering for different ways of working</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Added multiple colour schemes to show promo depth, classification, stage of progress, and price governance breaches — catering for different user preferences and working styles. Added customisable time period views for categories affected by seasonality.</p>
+        <p class="case-body" style="margin-bottom:20px;">Added multiple colour schemes to show promo depth, classification, stage of progress, and price governance breaches — catering for different user preferences and working styles. Added customisable time period views for categories affected by seasonality.</p>
         <div class="grid-img-2">
           <figure><img src="assets/images/ngs-colour-schemes.png" alt="Colour scheme options" class="img-real"><figcaption class="img-caption">Colour scheme options</figcaption></figure>
           <figure><img src="assets/images/ngs-time-period.png" alt="Time period view" class="img-real"><figcaption class="img-caption">Customisable time period view</figcaption></figure>
@@ -438,7 +460,7 @@
 
 <!-- Final solutions -->
 <section class="case-section case-section-alt">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">Final design</div>
     <h2 class="case-heading" style="margin-bottom:28px;">4 key features</h2>
 
@@ -446,28 +468,28 @@
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">01 — Integration</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Shared promotions portal with supplier</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Enables users to send promotions directly to the supplier for review within the tool — removing discrepancy risk, reducing the burden of checking financial information, and allowing easy tracking of promotion status across all suppliers.</p>
+        <p class="case-body" style="margin-bottom:20px;">Enables users to send promotions directly to the supplier for review within the tool — removing discrepancy risk, reducing the burden of checking financial information, and allowing easy tracking of promotion status across all suppliers.</p>
         <figure><img src="assets/images/ngs-portal-integration.gif" alt="Portal integration demo" class="img-real"><figcaption class="img-caption">Portal integration — supplier workflow</figcaption></figure>
       </div>
 
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">02 — Scenarios</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Scenario functionality to test and compare</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Enables users to create test scenarios in mock environments with different combinations of promotions, and compare financial information across proposals in one place.</p>
+        <p class="case-body" style="margin-bottom:20px;">Enables users to create test scenarios in mock environments with different combinations of promotions, and compare financial information across proposals in one place.</p>
         <figure><img src="assets/images/ngs-scenario-comparison.gif" alt="Scenario comparison demo" class="img-real"><figcaption class="img-caption">Scenario comparison functionality</figcaption></figure>
       </div>
 
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">03 — Forecasts</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Automated but editable forecasts</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Eliminates manual forecasting, enabling forward-looking planning. Users retain full control to adjust forecasts based on their greater category knowledge.</p>
+        <p class="case-body" style="margin-bottom:20px;">Eliminates manual forecasting, enabling forward-looking planning. Users retain full control to adjust forecasts based on their greater category knowledge.</p>
         <figure><img src="assets/images/ngs-forecasting.gif" alt="Automated forecasting demo" class="img-real"><figcaption class="img-caption">Automated forecasting</figcaption></figure>
       </div>
 
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">04 — Insights</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Smart insights &amp; recommendations</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">System-generated insights and recommendations help users find actionable opportunities to maximise revenue and profit growth — removing the need to use multiple tools.</p>
+        <p class="case-body" style="margin-bottom:20px;">System-generated insights and recommendations help users find actionable opportunities to maximise revenue and profit growth — removing the need to use multiple tools.</p>
         <figure><img src="assets/images/ngs-insights-recommendations.gif" alt="Smart insights and recommendations demo" class="img-real"><figcaption class="img-caption">Smart insights &amp; recommendations</figcaption></figure>
       </div>
     </div>
@@ -476,7 +498,7 @@
 
 <!-- Learnings -->
 <section class="case-section">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">Reflection</div>
     <h2 class="case-heading" style="margin-bottom:40px;">Key learnings</h2>
     <div class="grid-2" style="gap:48px;">
@@ -502,7 +524,7 @@
 
 <!-- Case footer -->
 <div class="case-footer-nav">
-  <div class="container">
+  <div class="content-wrap">
     <div class="case-footer-inner">
       <a href="index.html" class="case-footer-back">← Back to all work</a>
       <div class="case-footer-next">
@@ -513,9 +535,11 @@
   </div>
 </div>
 
-<footer style="background:var(--black); padding:24px 56px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08);">
+<footer style="background:var(--black); border-top:1px solid rgba(255,255,255,0.08);">
+<div style="max-width:860px; margin:0 auto; padding:24px 32px; display:flex; align-items:center; justify-content:space-between;">
   <a href="index.html" style="font-family:'Playfair Display',serif; font-size:15px; color:rgba(255,255,255,0.3); text-decoration:none;">Michelle Kim</a>
   <span style="font-size:11px; color:rgba(255,255,255,0.2); letter-spacing:0.04em;">© 2025 · Sydney, AU</span>
+</div>
 </footer>
 
 <script>

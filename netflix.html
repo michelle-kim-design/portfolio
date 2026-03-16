@@ -9,6 +9,20 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
 
+/* ── CONTENT WIDTH: all page content constrained to this ── */
+.content-wrap,
+.case-hero-content {
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
 .case-hero {
   padding-top: 60px;
   min-height: 80vh;
@@ -30,8 +44,8 @@
 .case-hero-content {
   position: relative;
   z-index: 2;
-  padding: 80px 56px;
-  max-width: 900px;
+  padding-top: 72px;
+  padding-bottom: 72px;
 }
 
 .case-hero-back {
@@ -149,6 +163,7 @@
 .img-placeholder-desc   { font-size: 11px; color: #ccc; }
 
 .img-real { width: 100%; border-radius: 4px; border: 1px solid var(--rule); display: block; }
+figure { margin: 0; padding: 0; }
 
 .insight-card {
   background: var(--green-light);
@@ -249,7 +264,7 @@
 
 @media (max-width: 900px) {
   .case-hero-content { padding: 60px 24px; }
-  .grid-2, .grid-img-2, .grid-img-3 { grid-template-columns: 1fr; }
+    .grid-2, .grid-img-2, .grid-img-3 { grid-template-columns: 1fr; }
   .case-footer-inner { flex-direction: column; gap: 24px; }
 }
 </style>
@@ -292,9 +307,9 @@
 
 <!-- Problem -->
 <section class="case-section case-section-alt">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">The problem</div>
-    <h2 class="case-heading" style="margin-bottom:28px; max-width:700px;">Lost in a sea of content</h2>
+    <h2 class="case-heading" style="margin-bottom:28px;">Lost in a sea of content</h2>
     <div class="grid-2" style="gap:48px; align-items:start;">
       <p class="case-body">Netflix users often feel <strong>overwhelmed</strong> by the magnitude of content available — feeling lost, with the problem currently inadequately addressed by numerous and <strong>unreliable recommendations</strong>. Users routinely exit Netflix to search ratings and ask friends for recommendations, then return to watch.</p>
       <div style="border-left:3px solid var(--green); padding-left:28px;">
@@ -306,10 +321,10 @@
 
 <!-- Research -->
 <section class="case-section">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">Research</div>
     <h2 class="case-heading" style="margin-bottom:20px;">Understanding the frustration</h2>
-    <p class="case-body" style="max-width:700px; margin-bottom:40px;">With this project stemming from a personal pain point, I conducted 8 one-on-one user interviews and collected 58 survey responses to validate whether others experienced the same problem — and more importantly, why.</p>
+    <p class="case-body" style="margin-bottom:40px;">With this project stemming from a personal pain point, I conducted 8 one-on-one user interviews and collected 58 survey responses to validate whether others experienced the same problem — and more importantly, why.</p>
 
     <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:40px;">
       <div class="user-quote"><div class="user-quote-text">"Netflix recommendations are hopeless."</div></div>
@@ -328,10 +343,10 @@
 
 <!-- Personas -->
 <section class="case-section case-section-alt">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">Personas</div>
     <h2 class="case-heading" style="margin-bottom:20px;">Harris &amp; Jennifer</h2>
-    <p class="case-body" style="max-width:700px; margin-bottom:32px;">Representing busy Netflix users who rely on friends' recommendations and external reviews before committing to watch something.</p>
+    <p class="case-body" style="margin-bottom:32px;">Representing busy Netflix users who rely on friends' recommendations and external reviews before committing to watch something.</p>
     <div class="grid-img-2">
       <figure><img src="assets/images/nf-persona-harris.png" alt="Harris Stevenson persona" class="img-real"><figcaption class="img-caption">Persona — Harris Stevenson</figcaption></figure>
       <figure><img src="assets/images/nf-persona-jennifer.png" alt="Jennifer Lee persona" class="img-real"><figcaption class="img-caption">Persona — Jennifer Lee</figcaption></figure>
@@ -341,30 +356,30 @@
 
 <!-- Solution -->
 <section class="case-section">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">The solution</div>
     <h2 class="case-heading" style="margin-bottom:28px;">Bring the decision-making tools inside Netflix</h2>
-    <p class="case-body" style="max-width:700px; margin-bottom:40px;">After ideation through Crazy 8s, MVP matrix and dot voting with peers, three key features were identified as the most effective solution:</p>
+    <p class="case-body" style="margin-bottom:40px;">After ideation through Crazy 8s, MVP matrix and dot voting with peers, three key features were identified as the most effective solution:</p>
 
     <div style="display:flex; flex-direction:column; gap:40px;">
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">01</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">External ratings (Rotten Tomatoes / IMDB)</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Many users searched ratings and reviews before committing to watch. Bringing this inside Netflix saves time and effort — no need to exit the platform.</p>
+        <p class="case-body" style="margin-bottom:20px;">Many users searched ratings and reviews before committing to watch. Bringing this inside Netflix saves time and effort — no need to exit the platform.</p>
         <figure><img src="assets/images/nf-lofi-ratings.png" alt="External ratings lo-fi wireframe" class="img-real"><figcaption class="img-caption">External ratings — lo-fi wireframe</figcaption></figure>
       </div>
 
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">02</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">Share recommendations between friends</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">37.9% of users currently find content by asking friends for recommendations — communicating outside of Netflix entirely. This feature enables sharing and receiving recommendations directly within the platform.</p>
+        <p class="case-body" style="margin-bottom:20px;">37.9% of users currently find content by asking friends for recommendations — communicating outside of Netflix entirely. This feature enables sharing and receiving recommendations directly within the platform.</p>
         <figure><img src="assets/images/nf-lofi-share.png" alt="Share recommendations lo-fi wireframe" class="img-real"><figcaption class="img-caption">Share recommendations — lo-fi wireframe</figcaption></figure>
       </div>
 
       <div>
         <p style="font-size:13px; font-weight:600; color:var(--green); letter-spacing:0.04em; margin-bottom:8px;">03</p>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">View friends' recently watched / rated</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">Users regularly ask friends what they've watched and enjoyed. A social "My Community" hub enables users to browse friends' activity and receive recommendations without leaving Netflix.</p>
+        <p class="case-body" style="margin-bottom:20px;">Users regularly ask friends what they've watched and enjoyed. A social "My Community" hub enables users to browse friends' activity and receive recommendations without leaving Netflix.</p>
         <figure><img src="assets/images/nf-lofi-recently-watched.png" alt="Friends recently watched lo-fi wireframe" class="img-real"><figcaption class="img-caption">Friends' recently watched — lo-fi wireframe</figcaption></figure>
       </div>
     </div>
@@ -373,20 +388,20 @@
 
 <!-- Design iteration -->
 <section class="case-section case-section-alt">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">Testing &amp; iteration</div>
     <h2 class="case-heading" style="margin-bottom:28px;">2 major improvements from testing</h2>
 
     <div style="display:flex; flex-direction:column; gap:40px;">
       <div>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">1. Less clicks</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">To reduce clicks and incorporate the social aspect more seamlessly, I combined the two screens for sharing content into one — listing Netflix users at the top and showing options for sharing outside Netflix underneath.</p>
+        <p class="case-body" style="margin-bottom:20px;">To reduce clicks and incorporate the social aspect more seamlessly, I combined the two screens for sharing content into one — listing Netflix users at the top and showing options for sharing outside Netflix underneath.</p>
         <figure><img src="assets/images/nf-iteration-sharing.png" alt="Before and after sharing flow iteration" class="img-real"><figcaption class="img-caption">Before / after — sharing flow iteration</figcaption></figure>
       </div>
 
       <div>
         <h3 style="font-family:'Playfair Display',serif; font-size:20px; font-weight:400; color:var(--black); margin-bottom:12px;">2. Easier visibility</h3>
-        <p class="case-body" style="max-width:680px; margin-bottom:20px;">The "My Community" page was updated to combine the list of friends with their recommendations, rather than showing them separately — enabling users to quickly scan friends' recommendations without extra navigation.</p>
+        <p class="case-body" style="margin-bottom:20px;">The "My Community" page was updated to combine the list of friends with their recommendations, rather than showing them separately — enabling users to quickly scan friends' recommendations without extra navigation.</p>
         <figure><img src="assets/images/nf-iteration-community.png" alt="My Community improved layout" class="img-real"><figcaption class="img-caption">My Community — improved layout</figcaption></figure>
       </div>
     </div>
@@ -395,10 +410,10 @@
 
 <!-- Final design -->
 <section class="case-section">
-  <div class="container">
+  <div class="content-wrap">
     <div class="eyebrow" style="margin-bottom:16px;">Final design</div>
     <h2 class="case-heading" style="margin-bottom:20px;">Hi-fi prototype</h2>
-    <p class="case-body" style="max-width:700px; margin-bottom:32px;">Re-created in Figma adapting Netflix's existing UI, incorporating all feedback from lo-fi testing with consistent brand typography and colour.</p>
+    <p class="case-body" style="margin-bottom:32px;">Re-created in Figma adapting Netflix's existing UI, incorporating all feedback from lo-fi testing with consistent brand typography and colour.</p>
     <div class="grid-img-2" style="margin-bottom:16px;">
       <figure><img src="assets/images/nf-hifi-ratings-sharing.png" alt="Hi-fi external ratings and sharing" class="img-real"><figcaption class="img-caption">Hi-fi — external ratings &amp; sharing</figcaption></figure>
       <figure><img src="assets/images/nf-hifi-community.png" alt="Hi-fi My Community page" class="img-real"><figcaption class="img-caption">Hi-fi — My Community page</figcaption></figure>
@@ -411,7 +426,7 @@
 
 <!-- Metrics & Learnings -->
 <section class="case-section case-section-alt">
-  <div class="container">
+  <div class="content-wrap">
     <div class="grid-2" style="gap:64px; align-items:start;">
       <div>
         <div class="eyebrow" style="margin-bottom:16px;">Success metrics</div>
@@ -436,7 +451,7 @@
 
 <!-- Case footer -->
 <div class="case-footer-nav">
-  <div class="container">
+  <div class="content-wrap">
     <div class="case-footer-inner">
       <div class="case-footer-prev">
         <span class="case-footer-prev-label">Previous project</span>
@@ -447,9 +462,11 @@
   </div>
 </div>
 
-<footer style="background:var(--black); padding:24px 56px; display:flex; align-items:center; justify-content:space-between; border-top:1px solid rgba(255,255,255,0.08);">
+<footer style="background:var(--black); border-top:1px solid rgba(255,255,255,0.08);">
+<div style="max-width:860px; margin:0 auto; padding:24px 32px; display:flex; align-items:center; justify-content:space-between;">
   <a href="index.html" style="font-family:'Playfair Display',serif; font-size:15px; color:rgba(255,255,255,0.3); text-decoration:none;">Michelle Kim</a>
   <span style="font-size:11px; color:rgba(255,255,255,0.2); letter-spacing:0.04em;">© 2025 · Sydney, AU</span>
+</div>
 </footer>
 
 <script>
